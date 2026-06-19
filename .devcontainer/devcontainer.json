@@ -1,0 +1,15 @@
+{
+  "name": "Hi.kim - Codespace",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:0-18",
+  "postCreateCommand": "npm install -g live-server",
+  "forwardPorts": [8080],
+  "remoteUser": "vscode",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ritwickdey.LiveServer",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}
