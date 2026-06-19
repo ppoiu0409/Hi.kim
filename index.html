@@ -72,6 +72,7 @@
     .toolbar-actions { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
     .mobile-nav-hint { display:none; }
     .mobile-item-nav { display:none; }
+    .mobile-bottom-tabs { display:none; }
     .search {
       flex:1 1 360px; display:flex; align-items:center; background:white; border:1px solid var(--line); border-radius:14px; padding:0 12px;
     }
@@ -393,6 +394,55 @@
       }
       .mobile-item-nav a.active { background:var(--blue); color:white; border-color:var(--blue); }
       .mobile-item-nav a.active b { background:rgba(255,255,255,.18); color:white; }
+      .mobile-bottom-tabs {
+        position:fixed;
+        left:0;
+        right:0;
+        bottom:0;
+        z-index:80;
+        display:grid;
+        grid-template-columns:repeat(5,1fr);
+        gap:4px;
+        padding:8px 10px calc(8px + env(safe-area-inset-bottom));
+        background:rgba(255,255,255,.96);
+        border-top:1px solid var(--line);
+        box-shadow:0 -10px 26px rgba(11,36,71,.12);
+        backdrop-filter:blur(14px);
+      }
+      .mobile-bottom-tabs a {
+        min-width:0;
+        min-height:54px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        gap:3px;
+        border-radius:14px;
+        color:#5f6b7a;
+        font-size:11.5px;
+        font-weight:900;
+        line-height:1.1;
+      }
+      .mobile-bottom-tabs i {
+        width:26px;
+        height:26px;
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        border-radius:50%;
+        background:#eef4ff;
+        color:var(--blue);
+        font-style:normal;
+        font-size:14px;
+      }
+      .mobile-bottom-tabs a.active {
+        color:var(--navy);
+        background:#eefbf7;
+      }
+      .mobile-bottom-tabs a.active i {
+        background:var(--mint);
+        color:white;
+      }
       .toolbar-actions { order:4; width:100%; display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
       .toolbar-actions button { width:100%; padding:10px 8px; font-size:13px; }
       section.block, .guide-card { scroll-margin-top: 178px; }
@@ -402,7 +452,7 @@
       aside { padding:18px 16px; }
       aside h1 { font-size:17px; }
       aside p { margin-bottom:12px; }
-      .content { padding-top:18px; padding-bottom:56px; }
+      .content { padding-top:18px; padding-bottom:112px; }
       section.block {
         margin-top:18px;
         padding:16px;
@@ -544,7 +594,7 @@
         font-size:13.5px;
         line-height:1.55;
       }
-      .floating-home { right:16px; bottom:16px; width:52px; height:52px; font-size:21px; }
+      .floating-home { right:16px; bottom:88px; width:52px; height:52px; font-size:21px; }
     }
 
 
@@ -1196,7 +1246,7 @@
     @media (max-width: 960px) {
       .floating-overview {
         right:18px;
-        bottom:86px;
+        bottom:150px;
         height:46px;
         min-width:56px;
         font-size:13px;
@@ -1226,7 +1276,7 @@
       }
     }
     @media print {
-      .floating-overview, .overview-modal { display:none !important; }
+      .floating-overview, .overview-modal, .mobile-bottom-tabs { display:none !important; }
     }
 
     @media print {
@@ -1305,11 +1355,8 @@
 
     <div class="toolbar" id="top">
       <div class="search">🔎 <input id="searchInput" type="search" placeholder="검색어 입력: 예) 재위탁, 서약서, CCTV, 구글폼, 퇴사자, 사진촬영"></div>
-      <div class="mobile-nav-hint" aria-hidden="true"><span>빠른 이동</span><span>좌우로 밀어보세요 ↔</span></div>
-      <nav class="mobile-item-nav" aria-label="모바일 빠른 이동">
-        <a href="#overview"><b>개요</b><span>개요</span></a>
-        <a href="#law"><b>법령</b><span>법령</span></a>
-        <a href="#flow"><b>흐름</b><span>흐름</span></a>
+      <div class="mobile-nav-hint" aria-hidden="true"><span>점검항목 바로가기</span><span>좌우로 밀어보세요 ↔</span></div>
+      <nav class="mobile-item-nav" aria-label="점검항목 빠른 이동">
         <a href="#item-1"><b>01</b><span>내부관리</span></a>
         <a href="#item-2"><b>02</b><span>교육관리</span></a>
         <a href="#item-3"><b>03</b><span>이행관리</span></a>
@@ -1322,7 +1369,6 @@
         <a href="#item-10"><b>10</b><span>재위탁</span></a>
         <a href="#item-11"><b>11</b><span>관리감독</span></a>
         <a href="#qa"><b>Q</b><span>질문대응</span></a>
-        <a href="#ending"><b>종료</b><span>종료</span></a>
       </nav>
       <div class="toolbar-actions">
         <button class="secondary" onclick="expandAll()">모두 펼치기</button>
@@ -2944,6 +2990,13 @@
     <footer>
       배포용 초안 · 2026-06-19 작성 · 대한민국 개인정보 보호법 기준 · 본 자료는 점검관 교육 및 현장점검 보조 목적으로 작성되었습니다.
     </footer>
+    <nav class="mobile-bottom-tabs" aria-label="핵심 섹션 하단 이동">
+      <a href="#overview"><i>⌂</i><span>개요</span></a>
+      <a href="#flow"><i>↳</i><span>흐름</span></a>
+      <a href="#checklist"><i>✓</i><span>점검</span></a>
+      <a href="#qa"><i>?</i><span>Q&A</span></a>
+      <a href="#ending"><i>끝</i><span>종료</span></a>
+    </nav>
   </main>
 </div>
 
@@ -3011,6 +3064,8 @@ function collapseAll() {
 }
 
 const quickNavLinks = Array.from(document.querySelectorAll('.mobile-item-nav a'));
+const bottomTabLinks = Array.from(document.querySelectorAll('.mobile-bottom-tabs a'));
+const allMobileNavLinks = [...quickNavLinks, ...bottomTabLinks];
 const quickNav = document.querySelector('.mobile-item-nav');
 
 if (quickNav) {
@@ -3051,15 +3106,18 @@ if (quickNav) {
 }
 
 function setActiveQuickNav(id) {
-  quickNavLinks.forEach(link => {
-    const active = link.getAttribute('href') === '#' + id;
+  allMobileNavLinks.forEach(link => {
+    const href = link.getAttribute('href');
+    const active = href === '#' + id || (href === '#checklist' && id.startsWith('item-'));
     link.classList.toggle('active', active);
-    if (active) link.scrollIntoView({ behavior:'smooth', inline:'center', block:'nearest' });
+    if (active && link.closest('.mobile-item-nav')) {
+      link.scrollIntoView({ behavior:'smooth', inline:'center', block:'nearest' });
+    }
   });
 }
 
-if ('IntersectionObserver' in window && quickNavLinks.length) {
-  const observedTargets = quickNavLinks
+if ('IntersectionObserver' in window && allMobileNavLinks.length) {
+  const observedTargets = allMobileNavLinks
     .map(link => document.querySelector(link.getAttribute('href')))
     .filter(Boolean);
   const observer = new IntersectionObserver(entries => {
@@ -3071,7 +3129,7 @@ if ('IntersectionObserver' in window && quickNavLinks.length) {
   observedTargets.forEach(target => observer.observe(target));
 }
 
-quickNavLinks.forEach(link => {
+allMobileNavLinks.forEach(link => {
   link.addEventListener('click', () => {
     const id = link.getAttribute('href').replace('#','');
     setActiveQuickNav(id);
