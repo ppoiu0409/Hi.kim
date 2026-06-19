@@ -12,6 +12,10 @@ Codespaces에서 개발
 
 ## 1. Cloudflare Pages 프로젝트 만들기
 
+GitHub Actions가 `edu-nice` 프로젝트를 자동 생성하도록 설정되어 있습니다.
+
+Cloudflare에서 직접 만들 경우:
+
 1. Cloudflare에 로그인합니다.
 2. 왼쪽 메뉴에서 `Workers & Pages`를 엽니다.
 3. `Pages` 탭을 선택합니다.
