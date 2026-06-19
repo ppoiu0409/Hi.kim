@@ -12,3 +12,14 @@ live-server --port=8080 --host=0.0.0.0
 3. 포트 8080이 포워딩되어 있으면 브라우저에서 사이트를 확인할 수 있습니다.
 
 추가: `ritwickdey.LiveServer` 확장도 설치되어 있어 바로 사용할 수 있습니다.
+
+OpenAI API 연결 테스트
+1. 작업공간에 `.env` 파일을 만들고 `OPENAI_API_KEY` 값을 넣습니다(또는 Codespaces Secrets 사용).
+2. 테스트 스크립트를 실행합니다:
+
+```bash
+chmod +x openai_test.sh
+./openai_test.sh
+```
+
+성공하면 OpenAI로부터 간단한 응답(JSON)이 출력됩니다.
