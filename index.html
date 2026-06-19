@@ -30,6 +30,8 @@
       background: var(--bg);
       color: var(--text);
       line-height:1.62;
+      word-break:keep-all;
+      overflow-wrap:break-word;
     }
     a { color:inherit; text-decoration:none; }
     .wrap { display:flex; min-height:100vh; }
@@ -139,6 +141,8 @@
     .flow div:before { counter-increment:step; content:counter(step); display:inline-flex; width:26px; height:26px; align-items:center; justify-content:center; background:var(--mint); color:white; border-radius:50%; font-weight:800; margin-right:6px; }
     .mini-list { columns:2; column-gap:28px; }
     .mini-list li { break-inside:avoid; margin-bottom:6px; }
+    .readable-list { margin:0; padding-left:18px; }
+    .readable-list li { margin:4px 0; line-height:1.55; }
     .empty { display:none; background:#fff2f2; border:1px solid #f2b8b8; color:#7a1f1f; border-radius:14px; padding:14px; margin:12px 0; }
     mark { background:#fff0a6; padding:1px 3px; border-radius:4px; }
     footer { color:var(--muted); font-size:12px; padding:24px 42px 44px; text-align:center; }
@@ -1424,27 +1428,33 @@
                 <tr>
                   <td>점검결과</td>
                   <td>
-                    - 판매일보 작성을 파트너점 차원에서 지시<br>
-                    - 고객 DB를 별도 보관하거나 파트너점 종업원에게 배포<br>
-                    - 비인가 개인정보처리시스템 사용을 지시 또는 허용
+                    <ul class="readable-list">
+                      <li>판매일보 작성을 파트너점 차원에서 지시</li>
+                      <li>고객 DB를 별도 보관하거나 파트너점 종업원에게 배포</li>
+                      <li>비인가 개인정보처리시스템 사용을 지시 또는 허용</li>
+                    </ul>
                   </td>
                   <td>취약점은 POS에서 발견되지만, 운영기준이나 업무지시가 HQ에서 내려온 경우에는 개별 POS만 점검해서는 동일 이슈가 반복될 수 있습니다.</td>
                 </tr>
                 <tr>
                   <td>필요성</td>
                   <td>
-                    - 대규모로 운영되는 사업자에 대한 관리기준 부재<br>
-                    - POS 단위 취급자의 변동 폭이 상당하며, 이직률이 높아 균등한 보호수준 유지가 어려움<br>
-                    - 취약점 검출 시 POS 근무자의 개별 일탈 또는 인식부족으로 단순 해석될 위험
+                    <ul class="readable-list">
+                      <li>대규모로 운영되는 사업자에 대한 관리기준 부재</li>
+                      <li>POS 단위 취급자의 변동 폭이 상당하며, 이직률이 높아 균등한 보호수준 유지가 어려움</li>
+                      <li>취약점 검출 시 POS 근무자의 개별 일탈 또는 인식부족으로 단순 해석될 위험</li>
+                    </ul>
                   </td>
                   <td>사무실(HQ)의 기준이 명확하지 않으면 POS마다 교육·서약·보관·파기·계정관리 방식이 달라지고, 점검 이후에도 관리수준이 다시 낮아질 수 있습니다.</td>
                 </tr>
                 <tr>
                   <td>'26년 수행계획</td>
                   <td>
-                    - 일정 규모 이상의 POS 운영 사업자를 대상으로 개인정보 관리체계 현장점검 시행<br>
-                    - 운영 규모 파악, 개인정보 취급자 수 조사, 개인정보 취급 현황 조사, 개인정보보호 관리체계 조사 등 실시<br>
-                    - 대형 파트너점에 대하여 컴플라이언스 점검 수준의 관리적 조치 위주 점검 시행
+                    <ul class="readable-list">
+                      <li>일정 규모 이상의 POS 운영 사업자를 대상으로 개인정보 관리체계 현장점검 시행</li>
+                      <li>운영 규모 파악, 개인정보 취급자 수 조사, 개인정보 취급 현황 조사, 개인정보보호 관리체계 조사 등 실시</li>
+                      <li>대형 파트너점에 대하여 컴플라이언스 점검 수준의 관리적 조치 위주 점검 시행</li>
+                    </ul>
                   </td>
                   <td>이번 점검은 단순 항목 확인이 아니라, “HQ가 POS를 어떻게 통제하고 있는지”를 확인하여 사무실 단위 개선과 POS 전체 확산을 유도하는 성격입니다.</td>
                 </tr>
