@@ -1,0 +1,3031 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>개인정보보호 현장점검 점검관 가이드북 - 대한민국 개인정보 보호법 기준</title>
+  <style>
+    :root {
+      --navy:#0b2447;
+      --blue:#19376d;
+      --mint:#19a7a3;
+      --sky:#e8f3ff;
+      --bg:#f6f8fb;
+      --paper:#ffffff;
+      --line:#dbe3ef;
+      --text:#1d2433;
+      --muted:#5f6b7a;
+      --danger:#fff2f2;
+      --danger-line:#f2b8b8;
+      --warn:#fff8e8;
+      --good:#eefbf7;
+      --shadow: 0 12px 30px rgba(11,36,71,.10);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body {
+      margin:0;
+      font-family: "Malgun Gothic", "Apple SD Gothic Neo", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height:1.62;
+    }
+    a { color:inherit; text-decoration:none; }
+    .wrap { display:flex; min-height:100vh; }
+    aside {
+      width:290px;
+      background:linear-gradient(180deg,var(--navy),#07182f);
+      color:white;
+      position:sticky;
+      top:0;
+      height:100vh;
+      padding:24px 18px;
+      overflow:auto;
+      flex-shrink:0;
+    }
+    aside h1 { font-size:19px; line-height:1.35; margin:0 0 6px; letter-spacing:-.5px; }
+    aside p { color:#b9c9df; font-size:13px; margin:0 0 18px; }
+    .side-title { font-size:12px; color:#89a5c5; font-weight:700; margin:24px 0 8px; text-transform:uppercase; letter-spacing:.08em; }
+    .side-nav a {
+      display:block; padding:9px 10px; border-radius:10px; color:#eaf2ff; font-size:13px;
+      margin:2px 0;
+    }
+    .side-nav a:hover { background:rgba(255,255,255,.10); }
+    main { width:100%; min-width:0; }
+    header.hero {
+      background: radial-gradient(circle at 15% 20%, rgba(25,167,163,.22), transparent 28%),
+                  linear-gradient(135deg, #0b2447 0%, #19376d 66%, #245ea8 100%);
+      color:white; padding:34px 42px 36px;
+    }
+    .eyebrow { display:inline-flex; gap:8px; align-items:center; font-size:13px; color:#d4edff; margin-bottom:12px; }
+    .hero h2 { font-size:34px; line-height:1.22; margin:0 0 14px; letter-spacing:-1.2px; }
+    .hero .lead { font-size:16px; color:#e5efff; max-width:960px; margin:0; }
+    .toolbar {
+      position:sticky; top:0; z-index:20;
+      background:rgba(246,248,251,.92);
+      backdrop-filter: blur(12px);
+      padding:14px 42px;
+      border-bottom:1px solid var(--line);
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    }
+    .toolbar-actions { display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .mobile-nav-hint { display:none; }
+    .mobile-item-nav { display:none; }
+    .search {
+      flex:1 1 360px; display:flex; align-items:center; background:white; border:1px solid var(--line); border-radius:14px; padding:0 12px;
+    }
+    .search input { width:100%; border:0; outline:0; padding:13px 8px; font-size:14px; background:transparent; }
+    button {
+      border:0; border-radius:12px; padding:11px 14px; background:var(--blue); color:white;
+      font-weight:700; cursor:pointer; font-family:inherit;
+    }
+    button.secondary { background:white; color:var(--blue); border:1px solid var(--line); }
+    button:hover { filter:brightness(.97); transform:translateY(-1px); }
+    .content { padding:30px 42px 80px; max-width:1280px; margin:0 auto; }
+    .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:-6px; }
+    .stat {
+      background:white; border:1px solid var(--line); border-radius:20px; padding:18px; box-shadow:var(--shadow);
+    }
+    .stat b { display:block; font-size:30px; color:var(--navy); line-height:1; margin-bottom:8px; }
+    .stat span { color:var(--muted); font-size:13px; }
+    section.block {
+      margin-top:28px; background:white; border:1px solid var(--line); border-radius:24px; padding:24px; box-shadow:var(--shadow);
+    }
+    section.block > h2 { margin:0 0 14px; font-size:24px; letter-spacing:-.7px; color:var(--navy); }
+    .notice {
+      background:var(--sky); border:1px solid #cbe4ff; border-radius:16px; padding:16px 18px; color:#183052; margin:16px 0;
+    }
+    .warning { background:var(--warn); border-color:#f1d28b; }
+    .good { background:var(--good); border-color:#bfeadc; }
+    .cards { display:grid; gap:18px; }
+    .guide-card {
+      background:white; border:1px solid var(--line); border-radius:22px; padding:20px; margin:18px 0; box-shadow:0 8px 24px rgba(29,36,51,.06);
+    }
+    .card-head { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:12px; }
+    .num { display:inline-flex; align-items:center; justify-content:center; width:42px; height:32px; border-radius:10px; background:var(--navy); color:white; font-weight:800; margin-right:8px; }
+    .area { display:inline-block; color:var(--mint); font-size:13px; font-weight:800; }
+    .card-head h3 { margin:8px 0 0; font-size:22px; letter-spacing:-.5px; }
+    .evidence { background:#eef4ff; color:var(--blue); border:1px solid #d8e5ff; padding:8px 10px; border-radius:999px; font-weight:800; font-size:13px; white-space:nowrap; }
+    .check-question { font-weight:800; color:#222d40; background:#f8fbff; border-left:5px solid var(--mint); padding:13px 16px; border-radius:12px; margin:12px 0; }
+    details { border:1px solid var(--line); border-radius:14px; padding:0; background:#fff; margin:10px 0; overflow:hidden; }
+    details summary { cursor:pointer; padding:13px 15px; font-weight:800; color:var(--navy); }
+    details p, details ul { padding:0 15px 14px; margin:0; }
+    .grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:14px; }
+    .box { background:#fbfcff; border:1px solid var(--line); border-radius:16px; padding:16px; }
+    .box h4 { margin:0 0 8px; color:var(--navy); }
+    .box ul { margin:0; padding-left:20px; }
+    .box.danger { background:var(--danger); border-color:var(--danger-line); }
+    .judgement { margin-top:14px; border-radius:14px; background:#f1fbf9; border:1px solid #bdeae5; padding:14px 16px; }
+    .filter-row { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 2px; }
+    .filter-btn { background:white; color:var(--blue); border:1px solid var(--line); padding:9px 12px; }
+    .filter-btn.active { background:var(--blue); color:white; }
+    .qa-section { margin:22px 0; }
+    .qa-section h3 { color:var(--navy); font-size:21px; margin:0 0 10px; }
+    .qa-section h3 span { font-size:12px; color:var(--muted); font-weight:700; }
+    .qa { margin:8px 0; border-radius:14px; }
+    .qa summary { display:flex; gap:10px; align-items:center; }
+    .qno { background:var(--mint); color:white; padding:3px 8px; border-radius:999px; font-size:12px; flex-shrink:0; }
+    .answer { padding:0 15px 15px; }
+    .answer p { margin:8px 0; }
+    .note { background:#f7f8fa; border-left:4px solid #c7d2e2; padding:10px 12px !important; border-radius:10px; color:#425064; }
+    table { width:100%; border-collapse:collapse; font-size:14px; overflow:hidden; border-radius:16px; }
+    th,td { border:1px solid var(--line); padding:11px 12px; text-align:left; vertical-align:top; }
+    th { background:#f1f6ff; color:var(--navy); }
+    .flow { display:grid; grid-template-columns:repeat(5,1fr); gap:10px; counter-reset:step; }
+    .flow div { background:#f8fbff; border:1px solid var(--line); border-radius:16px; padding:14px; position:relative; }
+    .flow div:before { counter-increment:step; content:counter(step); display:inline-flex; width:26px; height:26px; align-items:center; justify-content:center; background:var(--mint); color:white; border-radius:50%; font-weight:800; margin-right:6px; }
+    .mini-list { columns:2; column-gap:28px; }
+    .mini-list li { break-inside:avoid; margin-bottom:6px; }
+    .empty { display:none; background:#fff2f2; border:1px solid #f2b8b8; color:#7a1f1f; border-radius:14px; padding:14px; margin:12px 0; }
+    mark { background:#fff0a6; padding:1px 3px; border-radius:4px; }
+    footer { color:var(--muted); font-size:12px; padding:24px 42px 44px; text-align:center; }
+    section.block, .guide-card { scroll-margin-top: 128px; }
+    .floating-home {
+      position:fixed; right:22px; bottom:22px; z-index:50;
+      width:54px; height:54px; border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      background:var(--navy); color:white; box-shadow:0 12px 26px rgba(11,36,71,.25);
+      font-size:22px; line-height:1; opacity:0; transform:translateY(10px);
+      pointer-events:none; transition:opacity .18s ease, transform .18s ease, filter .18s ease;
+    }
+    .floating-home.visible { opacity:1; transform:translateY(0); pointer-events:auto; }
+    .floating-home:hover { filter:brightness(1.08); }
+
+    /* Detailed HQ-POS top-down workflow */
+    .workflow-deep {
+      margin:18px 0;
+      background:linear-gradient(180deg,#ffffff 0%,#fbfdff 100%);
+      border:1px solid #cfe0f5;
+      border-radius:22px;
+      padding:20px;
+      box-shadow:0 8px 22px rgba(25,55,109,.06);
+    }
+    .workflow-head {
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:14px;
+    }
+    .workflow-head h4 {
+      margin:0 0 6px;
+      color:var(--navy);
+      font-size:20px;
+      letter-spacing:-.45px;
+    }
+    .workflow-head p {
+      margin:0;
+      color:#41516a;
+      font-size:14px;
+    }
+    .workflow-badge {
+      flex-shrink:0;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:8px 11px;
+      border-radius:999px;
+      background:#eefbf7;
+      border:1px solid #bfeadc;
+      color:#08756e;
+      font-weight:900;
+      font-size:12.5px;
+      white-space:nowrap;
+    }
+    .workflow-lane {
+      display:grid;
+      grid-template-columns:1.08fr 1.04fr 1.16fr 1.04fr;
+      gap:12px;
+      align-items:stretch;
+      position:relative;
+      margin:18px 0 14px;
+    }
+    .workflow-step {
+      position:relative;
+      border:2px solid #d7e3f3;
+      border-radius:18px;
+      background:#fff;
+      padding:15px 15px 14px;
+      min-height:232px;
+      box-shadow:0 6px 16px rgba(17,35,66,.04);
+    }
+    .workflow-step.hq-command { background:#f1f8ff; border-color:#9bc5ed; }
+    .workflow-step.pos-process { background:#f4fffc; border-color:#bddfd8; }
+    .workflow-step.unauth-report { background:#fff7f7; border-color:#f2b8b8; }
+    .workflow-step.hq-collect { background:#fffaf2; border-color:#edd8aa; }
+    .step-label {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 8px;
+      border-radius:999px;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(11,36,71,.10);
+      color:#203a63;
+      font-weight:900;
+      font-size:12px;
+      margin-bottom:8px;
+    }
+    .workflow-step h5 {
+      margin:0 0 8px;
+      color:var(--navy);
+      font-size:17px;
+      letter-spacing:-.35px;
+    }
+    .workflow-step ul {
+      margin:0;
+      padding-left:18px;
+      font-size:13.25px;
+      line-height:1.52;
+    }
+    .workflow-step li { margin:4px 0; }
+    .step-risk {
+      margin-top:10px;
+      border-radius:12px;
+      padding:9px 10px;
+      background:rgba(255,255,255,.78);
+      border:1px dashed rgba(11,36,71,.20);
+      color:#394a64;
+      font-size:12.5px;
+      line-height:1.45;
+    }
+    .step-risk b { color:#b42318; }
+    .lane-arrow {
+      position:absolute;
+      top:50%;
+      right:-21px;
+      transform:translateY(-50%);
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      background:#ffffff;
+      border:2px solid var(--mint);
+      color:var(--mint);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      z-index:3;
+      box-shadow:0 4px 12px rgba(25,167,163,.16);
+    }
+    .workflow-step:last-child .lane-arrow { display:none; }
+    .feedback-band {
+      margin-top:12px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      gap:12px;
+      align-items:center;
+      padding:13px 14px;
+      border-radius:18px;
+      border:1px solid #f2b8b8;
+      background:linear-gradient(90deg,#fff7f7,#fffdf8);
+    }
+    .feedback-band .feedback-title {
+      font-weight:900;
+      color:#b42318;
+      margin-bottom:4px;
+    }
+    .feedback-band p { margin:0; font-size:13px; color:#4c5a6e; }
+    .feedback-loop-icon {
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fff;
+      border:2px solid #f2b8b8;
+      color:#b42318;
+      font-size:22px;
+      font-weight:900;
+    }
+    .file-chip-wrap {
+      margin:14px 0 0;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .file-chip-wrap span {
+      display:inline-flex;
+      align-items:center;
+      gap:5px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#f8fbff;
+      color:#203a63;
+      border:1px solid #d8e5ff;
+      font-weight:800;
+      font-size:12.5px;
+    }
+    .risk-route-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    .risk-route-card {
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:16px;
+      padding:14px;
+    }
+    .risk-route-card h5 {
+      margin:0 0 7px;
+      color:var(--navy);
+      font-size:15px;
+    }
+    .risk-route-card p {
+      margin:0;
+      color:#425064;
+      font-size:13px;
+      line-height:1.55;
+    }
+    .risk-route-card strong { color:#b42318; }
+    .workflow-checkpoint {
+      margin-top:14px;
+      background:#eefbf7;
+      border:1px solid #bfeadc;
+      border-left:5px solid var(--mint);
+      border-radius:16px;
+      padding:14px 15px;
+    }
+    .workflow-checkpoint h5 {
+      margin:0 0 8px;
+      color:var(--navy);
+      font-size:15px;
+    }
+    .workflow-checkpoint ul { margin:0; padding-left:18px; }
+    .workflow-checkpoint li { margin:4px 0; font-size:13.25px; }
+
+
+    @media (max-width: 960px) {
+      .wrap { display:block; }
+      aside { position:relative; width:100%; height:auto; }
+      .side-nav { display:grid; grid-template-columns:repeat(2,1fr); gap:4px; }
+      .content, .toolbar, header.hero { padding-left:20px; padding-right:20px; }
+      .toolbar { padding-top:10px; padding-bottom:10px; gap:8px; }
+      .search { order:1; flex:1 1 100%; }
+      .mobile-nav-hint {
+        order:2; display:flex; justify-content:space-between; align-items:center;
+        width:100%; margin:0 2px -2px; color:var(--muted); font-size:11px; font-weight:800;
+      }
+      .mobile-nav-hint span:last-child { color:var(--mint); }
+      .mobile-item-nav {
+        order:3; display:flex; gap:8px; width:100%; overflow-x:auto;
+        padding:2px 18px 8px 0; -webkit-overflow-scrolling:touch; scroll-snap-type:x proximity;
+        scrollbar-width:none; overscroll-behavior-x:contain; cursor:grab;
+        mask-image:linear-gradient(90deg, #000 0%, #000 calc(100% - 28px), transparent 100%);
+        -webkit-mask-image:linear-gradient(90deg, #000 0%, #000 calc(100% - 28px), transparent 100%);
+      }
+      .mobile-item-nav.is-dragging { cursor:grabbing; scroll-snap-type:none; }
+      .mobile-item-nav::-webkit-scrollbar { display:none; }
+      .mobile-item-nav a {
+        flex:0 0 auto; display:flex; align-items:center; gap:6px;
+        padding:8px 11px; border:1px solid var(--line); border-radius:999px;
+        background:white; color:var(--blue); font-size:13px; font-weight:800;
+        scroll-snap-align:start; box-shadow:0 3px 10px rgba(11,36,71,.06);
+      }
+      .mobile-item-nav a b {
+        display:inline-flex; align-items:center; justify-content:center;
+        min-width:24px; height:24px; border-radius:999px; background:#eef4ff; color:var(--blue);
+        font-size:12px;
+      }
+      .mobile-item-nav a.active { background:var(--blue); color:white; border-color:var(--blue); }
+      .mobile-item-nav a.active b { background:rgba(255,255,255,.18); color:white; }
+      .toolbar-actions { order:4; width:100%; display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
+      .toolbar-actions button { width:100%; padding:10px 8px; font-size:13px; }
+      section.block, .guide-card { scroll-margin-top: 178px; }
+      .stats { grid-template-columns:repeat(2,1fr); }
+      .grid-2, .flow { grid-template-columns:1fr; }
+      .mini-list { columns:1; }
+      .floating-home { right:16px; bottom:16px; width:52px; height:52px; font-size:21px; }
+    }
+
+
+    body.modal-open { overflow:hidden; }
+    .principle-modal {
+      position:fixed; inset:0; z-index:1000;
+      display:none; align-items:center; justify-content:center;
+      padding:20px;
+      background:rgba(7,24,47,.66);
+      backdrop-filter: blur(8px);
+    }
+    .principle-modal.visible { display:flex; }
+    .principle-dialog {
+      width:min(720px, 100%);
+      max-height:min(88vh, 760px);
+      overflow:auto;
+      background:white;
+      border:1px solid rgba(255,255,255,.38);
+      border-radius:26px;
+      box-shadow:0 24px 72px rgba(0,0,0,.32);
+    }
+    .principle-head {
+      padding:24px 26px 18px;
+      color:white;
+      background:linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius:26px 26px 0 0;
+    }
+    .principle-head .badge {
+      display:inline-flex; align-items:center; gap:6px;
+      padding:6px 10px;
+      border-radius:999px;
+      background:rgba(255,255,255,.14);
+      color:#dff4ff;
+      font-size:12px;
+      font-weight:800;
+      margin-bottom:10px;
+    }
+    .principle-head h2 {
+      margin:0 0 8px;
+      font-size:26px;
+      line-height:1.28;
+      letter-spacing:-.7px;
+    }
+    .principle-head p { margin:0; color:#e5efff; font-size:14px; }
+    .principle-body { padding:22px 26px 24px; }
+    .principle-intro {
+      margin:0 0 16px;
+      padding:13px 15px;
+      background:#f1f6ff;
+      border:1px solid #d8e5ff;
+      border-radius:14px;
+      color:#243653;
+      font-size:14px;
+    }
+    .principle-checklist { display:grid; gap:10px; }
+    .principle-check {
+      display:grid;
+      grid-template-columns:auto 1fr;
+      gap:12px;
+      align-items:flex-start;
+      padding:14px 15px;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background:#fbfcff;
+      cursor:pointer;
+      transition:border-color .16s ease, background .16s ease, transform .16s ease;
+    }
+    .principle-check:hover { border-color:#b7c9e4; transform:translateY(-1px); }
+    .principle-check input {
+      width:22px; height:22px;
+      margin-top:2px;
+      accent-color:var(--mint);
+      cursor:pointer;
+    }
+    .principle-check strong { display:block; color:var(--navy); margin-bottom:3px; }
+    .principle-check span { color:#44536a; font-size:14px; }
+    .principle-check.checked {
+      background:#eefbf7;
+      border-color:#bfeadc;
+    }
+    .principle-progress {
+      margin:15px 0 14px;
+      font-size:13px;
+      font-weight:800;
+      color:var(--blue);
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .principle-progress small {
+      color:var(--muted);
+      font-weight:700;
+    }
+    .principle-actions {
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+      margin-top:14px;
+    }
+    .principle-actions button[disabled] {
+      opacity:.48;
+      cursor:not-allowed;
+      transform:none;
+      filter:none;
+    }
+    @media (max-width: 640px) {
+      .principle-modal { align-items:flex-start; padding:14px; }
+      .principle-dialog { max-height:calc(100vh - 28px); border-radius:22px; }
+      .principle-head { padding:20px 18px 16px; border-radius:22px 22px 0 0; }
+      .principle-head h2 { font-size:22px; }
+      .principle-body { padding:18px; }
+      .principle-check { padding:13px; }
+      .principle-actions button { width:100%; }
+    }
+
+
+    /* Overview: project background enhancement */
+    .project-context {
+      margin:22px 0 18px;
+      border:1px solid #cfe0f5;
+      background:linear-gradient(180deg,#fbfdff 0%, #f4f8ff 100%);
+      border-radius:22px;
+      padding:22px;
+      box-shadow:0 10px 26px rgba(25,55,109,.08);
+    }
+    .project-context .kicker {
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 11px;
+      border-radius:999px;
+      background:#e8f3ff;
+      color:var(--blue);
+      font-weight:900;
+      font-size:13px;
+      margin-bottom:10px;
+    }
+    .project-context h3 {
+      margin:4px 0 10px;
+      color:var(--navy);
+      font-size:24px;
+      letter-spacing:-.6px;
+      line-height:1.32;
+    }
+    .project-context .context-lead {
+      margin:0 0 16px;
+      color:#26364f;
+      font-size:15px;
+    }
+    .context-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin:16px 0;
+    }
+    .context-card {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:15px;
+    }
+    .context-card b {
+      display:block;
+      color:var(--navy);
+      margin-bottom:6px;
+      font-size:15px;
+    }
+    .context-card p {
+      margin:0;
+      color:#3f4d61;
+      font-size:13.5px;
+      line-height:1.55;
+    }
+    .issue-matrix {
+      margin:18px 0;
+      overflow-x:auto;
+      border-radius:18px;
+    }
+    .issue-matrix table {
+      min-width:780px;
+      background:white;
+    }
+    .issue-matrix th {
+      background:#203a63;
+      color:white;
+      border-color:#203a63;
+      text-align:center;
+    }
+    .issue-matrix td:first-child {
+      width:150px;
+      text-align:center;
+      font-weight:900;
+      color:var(--navy);
+      background:#f8fbff;
+    }
+    .hq-flow-box {
+      margin:18px 0;
+      background:#ffffff;
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:18px;
+    }
+    .hq-flow-title {
+      margin:0 0 12px;
+      color:var(--navy);
+      font-weight:900;
+      letter-spacing:-.3px;
+    }
+    .hq-flow {
+      display:grid;
+      grid-template-columns:1.05fr .86fr 1fr;
+      gap:14px;
+      align-items:stretch;
+      position:relative;
+    }
+    .flow-node {
+      position:relative;
+      background:#fbfcff;
+      border:2px solid #d7e3f3;
+      border-radius:18px;
+      padding:16px;
+      min-height:160px;
+    }
+    .flow-node.hq {
+      border-color:#9bc5ed;
+      background:#f1f8ff;
+    }
+    .flow-node.pos {
+      border-color:#bddfd8;
+      background:#f4fffc;
+    }
+    .flow-node.risk {
+      border-color:#f2b8b8;
+      background:#fff7f7;
+    }
+    .flow-node h4 {
+      margin:0 0 8px;
+      color:var(--navy);
+      font-size:17px;
+    }
+    .flow-node ul {
+      margin:0;
+      padding-left:19px;
+      font-size:13.5px;
+    }
+    .flow-node li { margin:4px 0; }
+    .flow-arrow {
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:var(--mint);
+      font-size:28px;
+      font-weight:900;
+      margin:auto -6px;
+    }
+    .strategy-compare {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+      margin:16px 0;
+    }
+    .strategy-card {
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:16px;
+      background:#fff;
+    }
+    .strategy-card h4 {
+      margin:0 0 10px;
+      color:var(--navy);
+      font-size:16px;
+    }
+    .strategy-card.legacy { background:#fffaf2; border-color:#edd8aa; }
+    .strategy-card.target { background:#eefbf7; border-color:#bfeadc; }
+    .strategy-card ol {
+      margin:0;
+      padding-left:19px;
+      font-size:13.5px;
+    }
+    .strategy-card li { margin:5px 0; }
+    .inspector-focus {
+      margin:18px 0 0;
+      background:#f7f8fa;
+      border-left:5px solid var(--mint);
+      border-radius:16px;
+      padding:16px 18px;
+    }
+    .inspector-focus h4 { margin:0 0 8px; color:var(--navy); }
+    .inspector-focus ul { margin:0; padding-left:20px; }
+    .inspector-focus li { margin:6px 0; }
+    .tag-row {
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin:12px 0 2px;
+    }
+    .tag-row span {
+      display:inline-flex;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#eef4ff;
+      color:var(--blue);
+      border:1px solid #d8e5ff;
+      font-weight:800;
+      font-size:12.5px;
+    }
+
+    /* Detailed HQ-POS top-down workflow */
+    .workflow-deep {
+      margin:18px 0;
+      background:linear-gradient(180deg,#ffffff 0%,#fbfdff 100%);
+      border:1px solid #cfe0f5;
+      border-radius:22px;
+      padding:20px;
+      box-shadow:0 8px 22px rgba(25,55,109,.06);
+    }
+    .workflow-head {
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:14px;
+    }
+    .workflow-head h4 {
+      margin:0 0 6px;
+      color:var(--navy);
+      font-size:20px;
+      letter-spacing:-.45px;
+    }
+    .workflow-head p {
+      margin:0;
+      color:#41516a;
+      font-size:14px;
+    }
+    .workflow-badge {
+      flex-shrink:0;
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:8px 11px;
+      border-radius:999px;
+      background:#eefbf7;
+      border:1px solid #bfeadc;
+      color:#08756e;
+      font-weight:900;
+      font-size:12.5px;
+      white-space:nowrap;
+    }
+    .workflow-lane {
+      display:grid;
+      grid-template-columns:1.08fr 1.04fr 1.16fr 1.04fr;
+      gap:12px;
+      align-items:stretch;
+      position:relative;
+      margin:18px 0 14px;
+    }
+    .workflow-step {
+      position:relative;
+      border:2px solid #d7e3f3;
+      border-radius:18px;
+      background:#fff;
+      padding:15px 15px 14px;
+      min-height:232px;
+      box-shadow:0 6px 16px rgba(17,35,66,.04);
+    }
+    .workflow-step.hq-command { background:#f1f8ff; border-color:#9bc5ed; }
+    .workflow-step.pos-process { background:#f4fffc; border-color:#bddfd8; }
+    .workflow-step.unauth-report { background:#fff7f7; border-color:#f2b8b8; }
+    .workflow-step.hq-collect { background:#fffaf2; border-color:#edd8aa; }
+    .step-label {
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+      padding:5px 8px;
+      border-radius:999px;
+      background:rgba(255,255,255,.78);
+      border:1px solid rgba(11,36,71,.10);
+      color:#203a63;
+      font-weight:900;
+      font-size:12px;
+      margin-bottom:8px;
+    }
+    .workflow-step h5 {
+      margin:0 0 8px;
+      color:var(--navy);
+      font-size:17px;
+      letter-spacing:-.35px;
+    }
+    .workflow-step ul {
+      margin:0;
+      padding-left:18px;
+      font-size:13.25px;
+      line-height:1.52;
+    }
+    .workflow-step li { margin:4px 0; }
+    .step-risk {
+      margin-top:10px;
+      border-radius:12px;
+      padding:9px 10px;
+      background:rgba(255,255,255,.78);
+      border:1px dashed rgba(11,36,71,.20);
+      color:#394a64;
+      font-size:12.5px;
+      line-height:1.45;
+    }
+    .step-risk b { color:#b42318; }
+    .lane-arrow {
+      position:absolute;
+      top:50%;
+      right:-21px;
+      transform:translateY(-50%);
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      background:#ffffff;
+      border:2px solid var(--mint);
+      color:var(--mint);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:900;
+      z-index:3;
+      box-shadow:0 4px 12px rgba(25,167,163,.16);
+    }
+    .workflow-step:last-child .lane-arrow { display:none; }
+    .feedback-band {
+      margin-top:12px;
+      display:grid;
+      grid-template-columns:1fr auto 1fr;
+      gap:12px;
+      align-items:center;
+      padding:13px 14px;
+      border-radius:18px;
+      border:1px solid #f2b8b8;
+      background:linear-gradient(90deg,#fff7f7,#fffdf8);
+    }
+    .feedback-band .feedback-title {
+      font-weight:900;
+      color:#b42318;
+      margin-bottom:4px;
+    }
+    .feedback-band p { margin:0; font-size:13px; color:#4c5a6e; }
+    .feedback-loop-icon {
+      width:42px;
+      height:42px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:#fff;
+      border:2px solid #f2b8b8;
+      color:#b42318;
+      font-size:22px;
+      font-weight:900;
+    }
+    .file-chip-wrap {
+      margin:14px 0 0;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .file-chip-wrap span {
+      display:inline-flex;
+      align-items:center;
+      gap:5px;
+      padding:7px 10px;
+      border-radius:999px;
+      background:#f8fbff;
+      color:#203a63;
+      border:1px solid #d8e5ff;
+      font-weight:800;
+      font-size:12.5px;
+    }
+    .risk-route-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      margin-top:14px;
+    }
+    .risk-route-card {
+      border:1px solid var(--line);
+      background:#fff;
+      border-radius:16px;
+      padding:14px;
+    }
+    .risk-route-card h5 {
+      margin:0 0 7px;
+      color:var(--navy);
+      font-size:15px;
+    }
+    .risk-route-card p {
+      margin:0;
+      color:#425064;
+      font-size:13px;
+      line-height:1.55;
+    }
+    .risk-route-card strong { color:#b42318; }
+    .workflow-checkpoint {
+      margin-top:14px;
+      background:#eefbf7;
+      border:1px solid #bfeadc;
+      border-left:5px solid var(--mint);
+      border-radius:16px;
+      padding:14px 15px;
+    }
+    .workflow-checkpoint h5 {
+      margin:0 0 8px;
+      color:var(--navy);
+      font-size:15px;
+    }
+    .workflow-checkpoint ul { margin:0; padding-left:18px; }
+    .workflow-checkpoint li { margin:4px 0; font-size:13.25px; }
+
+
+    @media (max-width: 960px) {
+      .context-grid, .hq-flow, .strategy-compare, .workflow-lane, .risk-route-grid { grid-template-columns:1fr; }
+      .flow-arrow { transform:rotate(90deg); margin:-6px 0; }
+      .lane-arrow {
+        top:auto;
+        right:auto;
+        left:50%;
+        bottom:-23px;
+        transform:translateX(-50%) rotate(90deg);
+      }
+      .workflow-step { min-height:auto; }
+      .workflow-head { display:block; }
+      .workflow-badge { margin-top:10px; }
+      .feedback-band { grid-template-columns:1fr; }
+      .feedback-loop-icon { margin:0 auto; }
+      .project-context { padding:18px; }
+      .project-context h3 { font-size:21px; }
+    }
+
+
+    .floating-overview {
+      position:fixed;
+      right:22px;
+      bottom:90px;
+      z-index:70;
+      width:auto;
+      min-width:58px;
+      height:48px;
+      padding:0 14px;
+      border-radius:999px;
+      background:#19a7a3;
+      color:white;
+      box-shadow:0 12px 26px rgba(11,36,71,.24);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:6px;
+      font-size:14px;
+      font-weight:900;
+      opacity:0;
+      pointer-events:none;
+      transform:translateY(10px);
+      transition:.2s ease;
+    }
+    .floating-overview.visible {
+      opacity:1;
+      pointer-events:auto;
+      transform:translateY(0);
+    }
+    .floating-overview:hover { filter:brightness(.98); transform:translateY(-1px); }
+    .overview-modal {
+      position:fixed;
+      inset:0;
+      z-index:120;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:22px;
+      background:rgba(7,24,47,.58);
+      backdrop-filter:blur(8px);
+    }
+    .overview-modal.visible { display:flex; }
+    .overview-dialog {
+      width:min(1040px, 100%);
+      max-height:min(88vh, 860px);
+      overflow:auto;
+      background:white;
+      border:1px solid var(--line);
+      border-radius:24px;
+      box-shadow:0 26px 70px rgba(0,0,0,.28);
+    }
+    .overview-modal-head {
+      position:sticky;
+      top:0;
+      z-index:2;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      padding:16px 18px;
+      background:rgba(255,255,255,.96);
+      backdrop-filter:blur(8px);
+      border-bottom:1px solid var(--line);
+    }
+    .overview-modal-head h2 {
+      margin:0;
+      color:var(--navy);
+      font-size:20px;
+      letter-spacing:-.5px;
+    }
+    .overview-modal-head p {
+      margin:3px 0 0;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .overview-close {
+      width:42px;
+      height:42px;
+      min-width:42px;
+      padding:0;
+      border-radius:50%;
+      background:var(--navy);
+      color:white;
+      font-size:22px;
+      line-height:1;
+    }
+    .overview-modal-body {
+      padding:22px;
+    }
+    .overview-modal-body > h2:first-child {
+      display:none;
+    }
+    .overview-modal-body .block,
+    .overview-modal-body section.block {
+      box-shadow:none;
+      border:0;
+      padding:0;
+      margin:0;
+    }
+    .overview-modal-actions {
+      position:sticky;
+      bottom:0;
+      display:flex;
+      justify-content:flex-end;
+      gap:10px;
+      padding:14px 18px;
+      background:rgba(255,255,255,.96);
+      border-top:1px solid var(--line);
+      backdrop-filter:blur(8px);
+    }
+    .overview-modal-actions button {
+      background:var(--blue);
+    }
+    @media (max-width: 960px) {
+      .floating-overview {
+        right:18px;
+        bottom:86px;
+        height:46px;
+        min-width:56px;
+        font-size:13px;
+      }
+      .overview-modal {
+        padding:10px;
+        align-items:flex-end;
+      }
+      .overview-dialog {
+        max-height:88vh;
+        border-radius:22px 22px 0 0;
+      }
+      .overview-modal-head {
+        padding:14px 14px;
+      }
+      .overview-modal-head h2 {
+        font-size:18px;
+      }
+      .overview-modal-body {
+        padding:16px;
+      }
+      .overview-modal-actions {
+        padding:12px 14px;
+      }
+      .overview-modal-actions button {
+        width:100%;
+      }
+    }
+    @media print {
+      .floating-overview, .overview-modal { display:none !important; }
+    }
+
+    @media print {
+      aside, .toolbar, button, .side-title, .side-nav, .mobile-item-nav, .mobile-nav-hint, .floating-home { display:none !important; }
+      body { background:white; }
+      header.hero { background:white; color:#111; padding:16px 0; }
+      .hero .lead, .eyebrow { color:#333; }
+      .content { padding:0; max-width:none; }
+      section.block, .guide-card { box-shadow:none; border:1px solid #bbb; break-inside:avoid; }
+      details { break-inside:avoid; }
+      details:not([open]) > *:not(summary) { display:block; }
+      a { text-decoration:none; color:#111; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="principleModal" class="principle-modal" role="dialog" aria-modal="true" aria-labelledby="principleModalTitle" aria-describedby="principleModalDesc">
+  <div class="principle-dialog" tabindex="-1">
+    <div class="principle-head">
+      <div class="badge">점검 시작 전 필수 확인</div>
+      <h2 id="principleModalTitle">현장 대응 4원칙을 먼저 확인해주세요</h2>
+      <p id="principleModalDesc">아래 4개 원칙을 모두 체크하면 팝업이 닫히고, 먼저 1. 개요 화면으로 이동합니다.</p>
+    </div>
+    <div class="principle-body">
+      <p class="principle-intro"><b>점검관 숙지 목적</b> · 이 절차는 점검 시작 전에 판단기준을 통일하고, 현장에서 개인정보가 불필요하게 노출되지 않도록 하기 위한 확인 단계입니다.</p>
+      <div class="principle-checklist">
+        <label class="principle-check">
+          <input type="checkbox" class="principle-box">
+          <span><strong>사실 중심</strong>“그렇다고 들었다”가 아니라 확인한 자료·상태를 기준으로 기록합니다.</span>
+        </label>
+        <label class="principle-check">
+          <input type="checkbox" class="principle-box">
+          <span><strong>개인정보 최소노출</strong>고객명, 연락처, 신분증, 신청서 내용은 촬영·수집하지 않습니다.</span>
+        </label>
+        <label class="principle-check">
+          <input type="checkbox" class="principle-box">
+          <span><strong>대체증빙 허용</strong>정해진 양식이 없더라도 이행 사실을 객관적으로 확인할 수 있으면 검토합니다.</span>
+        </label>
+        <label class="principle-check">
+          <input type="checkbox" class="principle-box">
+          <span><strong>현장 즉시조치 구분</strong>즉시조치는 긍정적으로 기록하되, 점검 시점의 미흡 사실과 구분합니다.</span>
+        </label>
+      </div>
+      <div class="principle-progress"><span id="principleCount">0/4 확인 완료</span><small>모두 체크해야 다음 단계로 이동할 수 있습니다.</small></div>
+      <div class="principle-actions">
+        <button id="principleConfirm" type="button" disabled>확인 완료 · 개요 보기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <aside>
+    <h1>개인정보보호<br>현장점검 가이드북</h1>
+    <p>LG유플러스 세일즈파트너 일반사무실 POS 점검관 배포용</p>
+    <div class="side-title">빠른 이동</div>
+    <nav class="side-nav">
+      <a href="#overview">개요</a>
+      <a href="#law">법령 연결</a>
+      <a href="#flow">점검 흐름</a>
+      <a href="#checklist">11개 점검항목</a>
+      <a href="#qa">현장 질문 대응집</a>
+      <a href="#ending">종료 멘트</a>
+    </nav>
+    <div class="side-title">항목 바로가기</div>
+    <nav class="side-nav"><a href="#item-1">01. 내부관리</a><a href="#item-2">02. 교육관리</a><a href="#item-3">03. 이행관리</a><a href="#item-4">04. 임직원관리</a><a href="#item-5">05. 정보보호서약서</a><a href="#item-6">06. 시건장치</a><a href="#item-7">07. 출입통제</a><a href="#item-8">08. 공간분리</a><a href="#item-9">09. 개인정보수집</a><a href="#item-10">10. 재위탁</a><a href="#item-11">11. 관리감독</a></nav>
+  </aside>
+
+  <main>
+    <header class="hero">
+      <div class="eyebrow">점검관 배포용 HTML · 검색/인쇄 지원</div>
+      <h2>세일즈파트너 일반사무실<br>개인정보보호 현장점검 점검관 가이드북</h2>
+      <p class="lead">체크리스트 원본 구조를 유지하면서, 점검관이 현장에서 놓치기 쉬운 확인사항·인터뷰 질문·증빙 판단기준·수검자 예상질문 답변을 한 화면에서 확인할 수 있도록 구성했습니다.</p>
+    </header>
+
+    <div class="toolbar" id="top">
+      <div class="search">🔎 <input id="searchInput" type="search" placeholder="검색어 입력: 예) 재위탁, 서약서, CCTV, 구글폼, 퇴사자, 사진촬영"></div>
+      <div class="mobile-nav-hint" aria-hidden="true"><span>점검항목 바로가기</span><span>좌우로 밀어보세요 ↔</span></div>
+      <nav class="mobile-item-nav" aria-label="점검항목 빠른 이동">
+        <a href="#item-1"><b>01</b><span>내부관리</span></a>
+        <a href="#item-2"><b>02</b><span>교육관리</span></a>
+        <a href="#item-3"><b>03</b><span>이행관리</span></a>
+        <a href="#item-4"><b>04</b><span>임직원관리</span></a>
+        <a href="#item-5"><b>05</b><span>서약서</span></a>
+        <a href="#item-6"><b>06</b><span>시건장치</span></a>
+        <a href="#item-7"><b>07</b><span>출입통제</span></a>
+        <a href="#item-8"><b>08</b><span>공간분리</span></a>
+        <a href="#item-9"><b>09</b><span>개인정보수집</span></a>
+        <a href="#item-10"><b>10</b><span>재위탁</span></a>
+        <a href="#item-11"><b>11</b><span>관리감독</span></a>
+        <a href="#qa"><b>Q</b><span>질문대응</span></a>
+      </nav>
+      <div class="toolbar-actions">
+        <button class="secondary" onclick="expandAll()">모두 펼치기</button>
+        <button class="secondary" onclick="collapseAll()">모두 접기</button>
+        <button onclick="window.print()">인쇄/PDF 저장</button>
+      </div>
+    </div>
+
+    <div class="content">
+<section id="overview" class="block">
+        <h2>1. 개요</h2>
+        <div class="stats">
+          <div class="stat"><b>11</b><span>점검항목</span></div>
+          <div class="stat"><b>111</b><span>대상점</span></div>
+          <div class="stat"><b>1</b><span>POS 유형</span></div>
+          <div class="stat"><b>91</b><span>현장 예상질문</span></div>
+        </div>
+
+        <div class="project-context">
+          <div class="kicker">프로젝트 추진 배경 · HQ 중심 심층점검</div>
+          <h3>이번 사무실 심층점검은 “취약점이 발견되는 POS”가 아니라, POS 운영을 지시·관리하는 사무실(HQ)의 관리체계를 확인하기 위한 프로젝트입니다.</h3>
+          <p class="context-lead">
+            일반적인 현장점검은 개별 POS에서 고객정보 처리상태를 확인하는 방식으로 진행됩니다. 그러나 대규모 세일즈파트너사의 경우 POS는 실제 고객정보를 수집·조회·보관하는 현장 단위이고, 판매일보 작성 방식, OB TM 데이터 배포, 업무처리시스템 이용 방식, 직원 교육·서약·계정관리, 재위탁 또는 외부업체 활용 기준은 사무실(HQ)에서 정하거나 안내하는 경우가 많습니다. 따라서 POS에서 동일하거나 유사한 개인정보보호 취약점이 반복적으로 확인된다면, 이를 단순히 개별 POS 근무자의 일탈이나 인식부족으로만 보기 어렵습니다. 이번 프로젝트는 취약점의 발생 지점과 원인 지점을 구분하여, 커맨드 역할을 하는 사무실(HQ)의 개인정보보호 인식수준과 관리체계를 높이고 POS 전반의 재발 가능성을 낮추는 데 목적이 있습니다.
+          </p>
+
+          <div class="context-grid">
+            <div class="context-card">
+              <b>대상 구조</b>
+              <p>111개 사무실은 단일 매장이 아니라 다수의 POS를 운영·관리하는 사업자입니다. 즉, 하나의 사무실 기준과 지시가 여러 POS의 개인정보 처리방식에 영향을 줄 수 있습니다.</p>
+            </div>
+            <div class="context-card">
+              <b>문제 발생 위치</b>
+              <p>신청서 보관, 판매일보 작성, 고객정보 조회, 계정 사용, 출력물 관리 등 취약점은 현장 POS에서 눈에 보이는 형태로 확인되는 경우가 많습니다.</p>
+            </div>
+            <div class="context-card">
+              <b>근본 원인 위치</b>
+              <p>POS의 운영방식은 사무실(HQ)의 업무지시, 양식 배포, 실적관리, 교육·점검 방식, 외부업체 활용 기준에서 비롯될 수 있습니다.</p>
+            </div>
+          </div>
+
+          <div class="issue-matrix">
+            <table>
+              <thead>
+                <tr><th>구분</th><th>상세 내용</th><th>점검관이 이해해야 할 의미</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>점검결과</td>
+                  <td>
+                    - 판매일보 작성을 파트너점 차원에서 지시<br>
+                    - 고객 DB를 별도 보관하거나 파트너점 종업원에게 배포<br>
+                    - 비인가 개인정보처리시스템 사용을 지시 또는 허용
+                  </td>
+                  <td>취약점은 POS에서 발견되지만, 운영기준이나 업무지시가 HQ에서 내려온 경우에는 개별 POS만 점검해서는 동일 이슈가 반복될 수 있습니다.</td>
+                </tr>
+                <tr>
+                  <td>필요성</td>
+                  <td>
+                    - 대규모로 운영되는 사업자에 대한 관리기준 부재<br>
+                    - POS 단위 취급자의 변동 폭이 상당하며, 이직률이 높아 균등한 보호수준 유지가 어려움<br>
+                    - 취약점 검출 시 POS 근무자의 개별 일탈 또는 인식부족으로 단순 해석될 위험
+                  </td>
+                  <td>사무실(HQ)의 기준이 명확하지 않으면 POS마다 교육·서약·보관·파기·계정관리 방식이 달라지고, 점검 이후에도 관리수준이 다시 낮아질 수 있습니다.</td>
+                </tr>
+                <tr>
+                  <td>'26년 수행계획案</td>
+                  <td>
+                    - 일정 규모 이상의 POS 운영 사업자를 대상으로 개인정보 관리체계 현장점검 시행<br>
+                    - 운영 규모 파악, 개인정보 취급자 수 조사, 개인정보 취급 현황 조사, 개인정보보호 관리체계 조사 등 실시<br>
+                    - 대형 파트너점에 대하여 컴플라이언스 점검 수준의 관리적 조치 위주 점검 시행
+                  </td>
+                  <td>이번 점검은 단순 항목 확인이 아니라, “HQ가 POS를 어떻게 통제하고 있는지”를 확인하여 사무실 단위 개선과 POS 전체 확산을 유도하는 성격입니다.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="workflow-deep">
+            <div class="workflow-head">
+              <div>
+                <h4>HQ → POS → 비인가 보고 → HQ 재취합 업무흐름도</h4>
+                <p>이번 심층점검에서는 단순히 POS 현장의 취약점만 보는 것이 아니라, <b>HQ의 업무지시가 개인정보파일 생성·보관·보고 방식으로 어떻게 연결되는지</b>를 확인합니다.</p>
+              </div>
+              <span class="workflow-badge">Top-down 지시 + Bottom-up 보고 구조</span>
+            </div>
+
+            <div class="workflow-lane" aria-label="HQ와 POS 간 개인정보 처리 업무흐름도">
+              <div class="workflow-step hq-command">
+                <span class="step-label">STEP 1 · HQ 지시</span>
+                <h5>사무실(HQ)이 업무방식·양식을 정함</h5>
+                <ul>
+                  <li>판매일보, 상담관리표, 실적관리 양식 작성 지시</li>
+                  <li>OB TM 대상자, 영업리스트, 상담자료 배포</li>
+                  <li>POS별 고객응대·계약처리·보고 기준 안내</li>
+                  <li>업무처리시스템 사용 기준, 계정 사용 방식 안내</li>
+                  <li>외부업체·재수탁자 활용 방식 결정 또는 허용</li>
+                </ul>
+                <div class="step-risk"><b>취약점 씨앗</b> · 양식에 불필요한 개인정보 항목이 포함되거나, 보고 방식이 명확히 통제되지 않으면 다수 POS에 같은 위험이 동시에 전파됩니다.</div>
+                <span class="lane-arrow">→</span>
+              </div>
+
+              <div class="workflow-step pos-process">
+                <span class="step-label">STEP 2 · POS 처리</span>
+                <h5>POS가 고객정보를 수집·입력·파일화</h5>
+                <ul>
+                  <li>고객 상담, 가입신청, 계약처리 과정에서 정보 수집</li>
+                  <li>신청서·계약서·신분증 사본 등 출력물 생성·보관</li>
+                  <li>판매일보, 상담이력, 고객리스트, 예약현황 파일 작성</li>
+                  <li>직원 개인 PC, 공용 PC, 이동식 저장매체에 임시 저장</li>
+                  <li>입퇴사자 변경에 따라 계정·권한 관리 필요</li>
+                </ul>
+                <div class="step-risk"><b>현장 노출</b> · POS는 실제 처리 현장이므로 서류 방치, 파일 저장, 권한 미정리, 교육·서약 누락이 가장 눈에 잘 보입니다.</div>
+                <span class="lane-arrow">→</span>
+              </div>
+
+              <div class="workflow-step unauth-report">
+                <span class="step-label">STEP 3 · 비인가 보고</span>
+                <h5>보고·공유 과정에서 비인가 경로 사용</h5>
+                <ul>
+                  <li>판매일보·고객리스트를 이메일 첨부로 HQ에 보고</li>
+                  <li>카카오톡·문자·개인 메신저로 고객정보 전달</li>
+                  <li>구글폼·네이버폼·별도 CRM 등 비인가 시스템 사용</li>
+                  <li>클라우드 드라이브, 개인 NAS, 공유폴더에 파일 업로드</li>
+                  <li>외부업체·재수탁자에게 고객정보 파일 전달</li>
+                </ul>
+                <div class="step-risk"><b>핵심 위험</b> · 위탁자가 승인하지 않은 경로로 개인정보가 이동하면 접근권한, 보관기간, 파기, 접속기록, 재위탁 동의 여부 확인이 어려워집니다.</div>
+                <span class="lane-arrow">→</span>
+              </div>
+
+              <div class="workflow-step hq-collect">
+                <span class="step-label">STEP 4 · HQ 취합</span>
+                <h5>HQ가 파일을 취합·보관·재배포</h5>
+                <ul>
+                  <li>POS별 판매일보·상담자료를 취합해 실적관리</li>
+                  <li>고객DB 또는 영업대상자 목록을 별도 보관</li>
+                  <li>취합자료를 다시 POS, TM 담당자, 외부업체에 배포</li>
+                  <li>보관기간 경과 후 파기 여부가 불명확해짐</li>
+                  <li>누가 언제 열람·다운로드했는지 추적 곤란</li>
+                </ul>
+                <div class="step-risk"><b>반복 구조</b> · HQ가 취합한 자료를 다시 업무자료로 활용하면 같은 비인가 처리방식이 다음 영업주기에도 반복될 수 있습니다.</div>
+              </div>
+            </div>
+
+            <div class="file-chip-wrap" aria-label="주요 개인정보파일 예시">
+              <span>📄 신청서</span><span>🧾 계약서</span><span>📊 판매일보</span><span>💬 상담이력</span><span>📋 고객리스트</span><span>📞 OB TM 대상자</span><span>🪪 신분증 사본</span><span>📦 설치·배송 명단</span>
+            </div>
+
+            <div class="feedback-band">
+              <div>
+                <div class="feedback-title">반복 취약점이 발생하는 이유</div>
+                <p>POS가 임의로 만든 파일처럼 보이더라도 실제로는 HQ의 실적관리, 상담관리, 영업관리 목적에 따라 생성·보고되는 경우가 있습니다.</p>
+              </div>
+              <div class="feedback-loop-icon">↺</div>
+              <div>
+                <div class="feedback-title">따라서 점검 초점은 “파일의 출처와 지시체계”</div>
+                <p>누가 양식을 만들었는지, 어떤 경로로 보고했는지, HQ가 어디에 보관하고 다시 누구에게 배포했는지를 확인해야 근본 원인을 찾을 수 있습니다.</p>
+              </div>
+            </div>
+
+            <div class="risk-route-grid">
+              <div class="risk-route-card">
+                <h5>① 비인가 수집·보고 경로</h5>
+                <p>구글폼, 네이버폼, 개인 메신저, 이메일 첨부, 클라우드 공유 등은 <strong>위탁계약과 고객사 승인 범위 밖의 개인정보 처리</strong>로 이어질 수 있습니다.</p>
+              </div>
+              <div class="risk-route-card">
+                <h5>② 별도 DB·파일 보관</h5>
+                <p>판매일보, 상담이력, 고객리스트가 HQ 또는 POS PC에 별도 보관되면 <strong>보관기간·파기·접근권한·암호화 관리</strong>가 불명확해질 수 있습니다.</p>
+              </div>
+              <div class="risk-route-card">
+                <h5>③ 재위탁·외부업체 접점</h5>
+                <p>TM, 설치, 배송, 전산관리, 문서파기 업체가 고객정보에 접근한다면 <strong>재위탁 동의와 관리감독 증빙</strong>이 반드시 확인되어야 합니다.</p>
+              </div>
+            </div>
+
+            <div class="workflow-checkpoint">
+              <h5>점검관 확인 포인트</h5>
+              <ul>
+                <li><b>양식 출처</b>: 판매일보·상담관리표·고객리스트 양식은 POS가 자체 작성했나요, HQ가 배포했나요?</li>
+                <li><b>보고 경로</b>: POS가 작성한 개인정보파일은 이메일, 카카오톡, 클라우드, 비인가 시스템 등 어떤 방식으로 HQ에 보고되나요?</li>
+                <li><b>보관 위치</b>: HQ가 취합한 파일은 어디에 저장되며, 접근권한과 보관기간은 누가 관리하나요?</li>
+                <li><b>재배포 여부</b>: HQ가 취합한 고객정보를 다른 POS, TM 담당자, 외부업체, 재수탁자에게 다시 전달하나요?</li>
+                <li><b>파기·추적성</b>: 보고 후 원본파일, 메신저 첨부, 이메일 첨부, 클라우드 공유 링크는 삭제·파기 또는 접근 차단되나요?</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="strategy-compare">
+            <div class="strategy-card legacy">
+              <h4>기존 POS 중심 점검의 한계</h4>
+              <ol>
+                <li>POS별 현장 취약점은 확인되지만, 같은 유형의 취약점이 다른 POS에서 반복될 수 있습니다.</li>
+                <li>점검 결과가 개별 근무자의 실수 또는 인식부족으로만 해석되어, HQ의 지시·관리체계 문제를 놓칠 수 있습니다.</li>
+                <li>POS 근무자 변경, 교육 누락, 계정 미정리 등은 현장 단위 조치만으로 장기간 유지되기 어렵습니다.</li>
+                <li>판매일보, 고객리스트, 상담자료 등 HQ가 배포하거나 요구한 양식이 원인인 경우 POS에서는 개선 권한이 제한적입니다.</li>
+              </ol>
+            </div>
+            <div class="strategy-card target">
+              <h4>이번 HQ 중심 심층점검의 목표</h4>
+              <ol>
+                <li>POS에서 보이는 취약점의 배경이 HQ 운영지시, 관리기준, 교육체계, 재위탁 구조와 연결되는지 확인합니다.</li>
+                <li>사무실(HQ)이 개인정보취급자 명단, 교육, 서약, 계정, 파기, 재위탁 관리감독을 어떻게 통제하는지 확인합니다.</li>
+                <li>개별 POS 조치가 아니라 사무실 단위의 표준기준을 개선하여 여러 POS에 동시에 확산되도록 유도합니다.</li>
+                <li>점검 이후에도 자체점검과 교육을 반복할 수 있는 관리체계를 만들어 재발 가능성을 낮춥니다.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="inspector-focus">
+            <h4>점검관 핵심 관점</h4>
+            <ul>
+              <li><b>“어디에서 취약점이 보였는가?”</b>만 보지 말고, <b>“누가 그런 운영방식을 정했는가?”</b>를 함께 확인합니다.</li>
+              <li>POS에서 발견된 이슈가 개별 직원의 일탈인지, 사무실(HQ)의 양식·가이드·실적관리·업무지시에서 비롯된 구조적 문제인지 구분합니다.</li>
+              <li>사무실(HQ)의 내부관리계획, 교육, 자체점검, 취급자 명단, 서약서, 계정관리, 재위탁 관리감독 자료가 실제 POS 운영까지 연결되는지 확인합니다.</li>
+              <li>수검자에게는 “문제 지적”보다 “POS 전체의 보호수준을 균등하게 올리기 위한 관리체계 확인”이라는 취지로 설명합니다.</li>
+            </ul>
+            <div class="tag-row"><span>HQ 지시체계</span><span>POS 반복취약점</span><span>관리기준 표준화</span><span>인식수준 향상</span><span>재발방지</span></div>
+          </div>
+        </div>
+        <div class="notice">
+          <b>운영 원칙</b><br>
+          이 가이드북은 수검자를 압박하기 위한 문서가 아니라, 점검관이 동일한 기준으로 사실관계를 확인하고 개선 방향을 안내하기 위한 실무 보조자료입니다. 현장에서는 “수검자 답변 → 증빙 확인 → 현장 상태 확인 → 판단근거 기록” 순서로 진행합니다.
+        </div>
+        <h3>현장 대응 4원칙</h3>
+        <ul class="mini-list">
+          <li><b>사실 중심</b>: “그렇다고 들었다”가 아니라 확인한 자료·상태를 기록합니다.</li>
+          <li><b>개인정보 최소노출</b>: 고객명, 연락처, 신분증, 신청서 내용은 촬영·수집하지 않습니다.</li>
+          <li><b>대체증빙 허용</b>: 정해진 양식이 없더라도 이행 사실을 객관적으로 확인할 수 있으면 검토합니다.</li>
+          <li><b>현장 즉시조치 구분</b>: 즉시조치는 긍정적으로 기록하되 점검 시점의 미흡 사실과 구분합니다.</li>
+        </ul>
+      </section>
+
+      <section id="law" class="block">
+        <h2>2. 대한민국 개인정보 보호법 기준 법령·기준 연결표</h2>
+        <div class="notice">
+          <b>적용 기준</b> · 본 가이드북의 법령 근거는 대한민국 「개인정보 보호법」, 같은 법 시행령, 개인정보보호위원회 고시 「개인정보의 안전성 확보조치 기준」 및 개인정보보호위원회 안내서를 기준으로 정리합니다. GDPR, CCPA 등 해외 법령은 본 점검 판단기준에 포함하지 않습니다.
+        </div>
+        <table>
+          <thead><tr><th>대한민국 법령·기준</th><th>현장점검 연결 포인트</th><th>체크리스트 관련 항목</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>개인정보 보호법 제15조<br><small>개인정보의 수집·이용</small></td>
+              <td>수집 근거, 수집 목적 범위 내 이용, 동의서 또는 계약 이행 필요성 확인</td>
+              <td>개인정보수집</td>
+            </tr>
+            <tr>
+              <td>개인정보 보호법 제17조·제18조<br><small>개인정보의 제공 / 목적 외 이용·제공 제한</small></td>
+              <td>고객정보를 외부업체, 개인 메신저, 별도 시스템, 자체 영업 목적으로 제공·활용하는지 확인</td>
+              <td>개인정보수집, 재위탁, 관리감독</td>
+            </tr>
+            <tr>
+              <td>개인정보 보호법 제21조<br><small>개인정보의 파기</small></td>
+              <td>보유기간 경과 또는 업무 목적 달성 후 전자파일·출력물·재수탁자 보유자료를 지체 없이 파기하는지 확인</td>
+              <td>시건장치, 관리감독, 개인정보수집</td>
+            </tr>
+            <tr>
+              <td>개인정보 보호법 제25조<br><small>고정형 영상정보처리기기의 설치·운영 제한</small></td>
+              <td>CCTV 설치 목적, 안내판, 촬영 범위, 보관기간, 열람권한, 녹음기능 사용 여부 확인</td>
+              <td>출입통제</td>
+            </tr>
+            <tr>
+              <td>개인정보 보호법 제26조<br><small>업무위탁에 따른 개인정보의 처리 제한</small></td>
+              <td>위탁업무 범위, 재위탁 시 위탁자 동의, 수탁자 교육·감독, 업무범위 초과 이용 금지, 수탁자 책임</td>
+              <td>내부관리, 재위탁, 관리감독, 개인정보수집</td>
+            </tr>
+            <tr>
+              <td>개인정보 보호법 제28조<br><small>개인정보취급자에 대한 감독</small></td>
+              <td>개인정보취급자 범위 최소화, 취급자 관리·감독, 정기 교육 실시 여부 확인</td>
+              <td>교육관리, 임직원관리, 정보보호서약서</td>
+            </tr>
+            <tr>
+              <td>개인정보 보호법 제29조<br><small>안전조치의무</small></td>
+              <td>내부관리계획, 접속기록, 접근권한, 기술적·관리적·물리적 보호조치 이행 여부 확인</td>
+              <td>내부관리, 이행관리, 임직원관리, 공간분리, 시건장치, 출입통제</td>
+            </tr>
+            <tr>
+              <td>개인정보 보호법 시행령 제28조<br><small>개인정보 처리업무 위탁 시 조치</small></td>
+              <td>위탁업무 목적·범위, 재위탁 제한, 안전성 확보조치, 개인정보 관리현황 점검 등 계약·감독 기준</td>
+              <td>내부관리, 재위탁, 관리감독</td>
+            </tr>
+            <tr>
+              <td>개인정보 보호법 시행령 제25조<br><small>고정형 영상정보처리기기 운영·관리 방침</small></td>
+              <td>CCTV 설치 근거·목적, 설치 위치, 촬영 범위, 보관기간, 접근권한, 영상정보 보호조치 확인</td>
+              <td>출입통제</td>
+            </tr>
+            <tr>
+              <td>개인정보 보호법 시행령 제30조<br><small>개인정보의 안전성 확보조치</small></td>
+              <td>내부관리계획 수립·시행·점검, 접근권한 제한, 접근통제, 암호화, 접속기록, 악성프로그램 방지, 물리적 안전조치</td>
+              <td>교육관리, 임직원관리, 공간분리, 시건장치, 출입통제</td>
+            </tr>
+            <tr>
+              <td>개인정보의 안전성 확보조치 기준<br><small>개인정보보호위원회 고시</small></td>
+              <td>개인정보처리자가 실제 운영해야 할 관리적·기술적·물리적 보호조치의 세부 기준</td>
+              <td>전체 항목 보조 기준</td>
+            </tr>
+            <tr>
+              <td>개인정보 처리 통합 안내서<br><small>개인정보보호위원회</small></td>
+              <td>개인정보 처리 원칙, 위탁, 수집·이용, 파기, 안전조치 등에 대한 현장 실무 해석 참고</td>
+              <td>전체 항목 보조 기준</td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="notice warning">
+          <b>주의</b> · 본 가이드북은 대한민국 개인정보 보호법 기준의 현장점검 실무 참고자료입니다. 최종 법적 판단은 점검일 현재 시행 중인 법령, 고객사 기준, 위탁계약서, 내부 정책을 함께 확인하여 결정해야 합니다.
+        </div>
+      </section>
+
+      <section id="flow" class="block">
+        <h2>3. 현장점검 표준 흐름</h2>
+        <div class="flow">
+          <div><b>도착·안내</b><br>점검 목적, 범위, 개인정보 미수집 원칙 설명</div>
+          <div><b>기본 인터뷰</b><br>업무범위, 담당자, 개인정보 흐름, 재위탁 여부 확인</div>
+          <div><b>증빙 확인</b><br>표준1~11 및 대체증빙 확인</div>
+          <div><b>현장 확인</b><br>서류, 시건, 출입, PC분리, 수집경로 확인</div>
+          <div><b>결과 정리</b><br>미흡사실, 위험, 개선방향, 사후제출 목록 정리</div>
+        </div>
+        <h3>점검 시작 멘트 예시</h3>
+        <div class="notice good">
+          “오늘 점검은 LG유플러스 고객정보를 처리하는 세일즈파트너 사무실의 개인정보보호 관리현황을 확인하기 위한 절차입니다. 내부관리계획, 교육, 직원관리, 서류보관, 출입통제, 접속 PC 분리, 재위탁 관리 등을 확인할 예정이며, 점검 중 확인되는 자료는 점검 목적 외로 사용하지 않습니다.”
+        </div>
+      </section>
+
+      <section id="checklist" class="block">
+        <h2>4. 11개 점검항목 상세 가이드</h2>
+        <div class="notice good">
+          <b>인터뷰 문장 사용 팁</b><br>
+          수검자 인터뷰는 추궁형 질문보다 “현재 어떻게 관리하고 계신가요?”, “진행하셨나요?”, “확인할 수 있을까요?”처럼 부드러운 확인형 문장으로 진행하면 현장 협조를 얻기 쉽습니다. 아래 스크립트는 점검관이 그대로 읽어도 자연스럽게 들리도록 조정했습니다.
+        </div>
+        <div class="filter-row">
+          <button class="filter-btn active" data-filter="전체">전체</button>
+          <button class="filter-btn" data-filter="개인정보정책">개인정보정책 <b>3</b></button><button class="filter-btn" data-filter="조직관리">조직관리 <b>2</b></button><button class="filter-btn" data-filter="물리보안">물리보안 <b>3</b></button><button class="filter-btn" data-filter="개인정보수집">개인정보수집 <b>1</b></button><button class="filter-btn" data-filter="개인정보이용 및 제공">개인정보이용 및 제공 <b>2</b></button>
+        </div>
+        <div id="emptyGuide" class="empty">검색 조건에 맞는 점검항목이 없습니다.</div>
+        
+    <article class="guide-card searchable" id="item-1" data-area="개인정보정책" data-text="개인정보정책 내부관리 세일즈파트너 전체 POS를 아우르는 &quot;내부관리계획(또는 고객정보보호 이행지침)&quot;을 수립하고 현행화하고 있는가? - 연 1회 이상 내부관리계획(또는 고객정보보호 이행지침) 신규/갱신 여부
+  * 영업팀-대표-관리자 등 지정(POS별)">
+      <div class="card-head">
+        <div>
+          <span class="num">01</span>
+          <span class="area">개인정보정책</span>
+          <h3>내부관리</h3>
+        </div>
+        <span class="evidence">표준1</span>
+      </div>
+      <div class="check-question">세일즈파트너 전체 POS를 아우르는 &quot;내부관리계획(또는 고객정보보호 이행지침)&quot;을 수립하고 현행화하고 있는가?</div>
+      <details open>
+        <summary>점검세부기준</summary>
+        <p>- 연 1회 이상 내부관리계획(또는 고객정보보호 이행지침) 신규/갱신 여부<br>  * 영업팀-대표-관리자 등 지정(POS별)</p>
+      </details>
+      <div class="grid-2">
+        <div class="box">
+          <h4>현장 핵심 확인</h4>
+          <ul><li>연 1회 이상 신규 수립 또는 검토·갱신 여부</li><li>영업팀-대표-관리자 등 POS별 책임자 지정 여부</li><li>실제 근무자에게 지침이 공유되었는지</li><li>지침 내 교육·점검·파기·재위탁 기준 포함 여부</li></ul>
+        </div>
+        <div class="box">
+          <h4>수검자 인터뷰 스크립트</h4>
+          <ul><li>현재 사용 중인 내부관리계획이나 고객정보보호 이행지침은 어디에 보관하고 계신가요?</li><li>마지막으로 검토하거나 개정하신 시점은 언제였나요?</li><li>POS별 개인정보보호 책임자와 관리자는 누구로 지정되어 있으신가요?</li><li>신규 입사자에게는 이 지침을 어떤 방식으로 안내하고 계신가요?</li></ul>
+        </div>
+        <div class="box">
+          <h4>확인 증빙</h4>
+          <ul><li>고객정보보호 이행지침</li><li>내부관리계획</li><li>책임자/담당자 지정 내역</li><li>개정 이력 또는 검토 확인</li></ul>
+        </div>
+        <div class="box danger">
+          <h4>미흡 징후</h4>
+          <ul><li>개정일자 없음</li><li>담당자 미지정</li><li>문서만 있고 직원이 존재를 모름</li><li>여러 POS에 적용되는 범위 불명확</li></ul>
+        </div>
+      </div>
+      <div class="judgement"><b>양호 판단 기준</b> · 문서가 존재하고 최근 1년 내 검토·개정 흔적, 담당자 지정, 적용범위가 확인됨</div>
+    </article>
+    
+
+    <article class="guide-card searchable" id="item-2" data-area="개인정보정책" data-text="개인정보정책 교육관리 내부관리계획(또는 고객정보보호 이행지침)에 명시한 규정에 따라 개인정보보호 자체교육 또는 외부교육을 연1회이상 수행하고, 증적을 보관하고 있는가? - 연 1회 이상 개인정보보호 자체교육 또는 외부교육 수행 여부
+  * 교육일시, 교육방법, 사진, 참석자 등을 확인할 수 있는 내역
+  * 외부교육은  개인정보배움터(edu.privacy.go.kr) 등에서 발급한 교육수료/이수증 등
+  * 미이수자 관리 : 재교육, 제재조치 등">
+      <div class="card-head">
+        <div>
+          <span class="num">02</span>
+          <span class="area">개인정보정책</span>
+          <h3>교육관리</h3>
+        </div>
+        <span class="evidence">표준2</span>
+      </div>
+      <div class="check-question">내부관리계획(또는 고객정보보호 이행지침)에 명시한 규정에 따라 개인정보보호 자체교육 또는 외부교육을 연1회이상 수행하고, 증적을 보관하고 있는가?</div>
+      <details open>
+        <summary>점검세부기준</summary>
+        <p>- 연 1회 이상 개인정보보호 자체교육 또는 외부교육 수행 여부<br>  * 교육일시, 교육방법, 사진, 참석자 등을 확인할 수 있는 내역<br>  * 외부교육은  개인정보배움터(edu.privacy.go.kr) 등에서 발급한 교육수료/이수증 등<br>  * 미이수자 관리 : 재교육, 제재조치 등</p>
+      </details>
+      <div class="grid-2">
+        <div class="box">
+          <h4>현장 핵심 확인</h4>
+          <ul><li>연 1회 이상 교육 수행 여부</li><li>개인정보취급자 전원 대상 여부</li><li>교육일시·교육방법·사진·참석자 확인</li><li>외부교육 수료증 인정 여부</li><li>미이수자 재교육·관리 여부</li></ul>
+        </div>
+        <div class="box">
+          <h4>수검자 인터뷰 스크립트</h4>
+          <ul><li>올해 개인정보보호 교육은 언제 진행하셨나요?</li><li>교육 대상은 개인정보취급자 전체로 잡고 진행하셨나요?</li><li>교육을 아직 이수하지 못한 분이 있다면, 이후에 어떻게 관리하고 계신가요?</li><li>신규 입사자는 보통 언제 교육받도록 안내하고 계신가요?</li></ul>
+        </div>
+        <div class="box">
+          <h4>확인 증빙</h4>
+          <ul><li>교육 사진</li><li>교육자료</li><li>참석자 명부</li><li>개인정보배움터 등 외부교육 수료증</li><li>미이수자 재교육 내역</li></ul>
+        </div>
+        <div class="box danger">
+          <h4>미흡 징후</h4>
+          <ul><li>구두교육만 주장하고 기록 없음</li><li>실제 취급자와 참석자 명단 불일치</li><li>미이수자 방치</li><li>교육자료 부재</li></ul>
+        </div>
+      </div>
+      <div class="judgement"><b>양호 판단 기준</b> · 교육일시, 대상자, 내용, 참석자 또는 수료증이 확인되고 미이수자 관리가 존재함</div>
+    </article>
+    
+
+    <article class="guide-card searchable" id="item-3" data-area="개인정보정책" data-text="개인정보정책 이행관리 내부관리계획(또는 고객정보보호 이행지침)에 명시한 규정에 대한 이행 실태 점검·관리를 정기적(연 1회 이상)으로 수행하고 있는가? - 연 1회 이상 내부관리계획에 대한 이행 실태 점검을 수행 여부
+  * 고객정보보호 이행지침 비치, 보관, 담당자 지정 등
+  * 개인정보보호 교육 수행여부 등
+  * 자체 보안점검 내역 등">
+      <div class="card-head">
+        <div>
+          <span class="num">03</span>
+          <span class="area">개인정보정책</span>
+          <h3>이행관리</h3>
+        </div>
+        <span class="evidence">표준3</span>
+      </div>
+      <div class="check-question">내부관리계획(또는 고객정보보호 이행지침)에 명시한 규정에 대한 이행 실태 점검·관리를 정기적(연 1회 이상)으로 수행하고 있는가?</div>
+      <details open>
+        <summary>점검세부기준</summary>
+        <p>- 연 1회 이상 내부관리계획에 대한 이행 실태 점검을 수행 여부<br>  * 고객정보보호 이행지침 비치, 보관, 담당자 지정 등<br>  * 개인정보보호 교육 수행여부 등<br>  * 자체 보안점검 내역 등</p>
+      </details>
+      <div class="grid-2">
+        <div class="box">
+          <h4>현장 핵심 확인</h4>
+          <ul><li>연 1회 이상 이행실태 점검 수행 여부</li><li>고객정보보호 이행지침 비치·보관 여부</li><li>교육 수행 여부 자체확인</li><li>자체 보안점검 내역 및 개선조치 확인</li></ul>
+        </div>
+        <div class="box">
+          <h4>수검자 인터뷰 스크립트</h4>
+          <ul><li>자체점검은 최근 언제 실시하셨나요?</li><li>점검은 어느 분이 진행하고, 최종 확인은 누가 하고 계신가요?</li><li>점검 후 개선이 필요한 사항은 어떻게 관리하고 계신가요?</li><li>점검 결과 자료는 어디에 보관하고 계신가요?</li></ul>
+        </div>
+        <div class="box">
+          <h4>확인 증빙</h4>
+          <ul><li>자체 보안점검표</li><li>이행실태 점검 결과</li><li>개선조치 내역</li><li>담당자 확인자료</li></ul>
+        </div>
+        <div class="box danger">
+          <h4>미흡 징후</h4>
+          <ul><li>자체점검 사실 없음</li><li>점검표만 있고 결과/조치 없음</li><li>담당자 미지정</li><li>전년도 미흡사항 미개선</li></ul>
+        </div>
+      </div>
+      <div class="judgement"><b>양호 판단 기준</b> · 자체점검 결과, 담당자 확인, 개선조치 내역이 확인됨</div>
+    </article>
+    
+
+    <article class="guide-card searchable" id="item-4" data-area="조직관리" data-text="조직관리 임직원관리 개인정보취급자(파트너점 임직원) 목록을 최신화하여 관리하고 있는가? - 수탁업무 개인정보취급자 명단 및 최신화 여부 확인
+- 개인정보취급자의 관리 및 통제를 위한 별도의 관리문서 혹은 내부 시스템으로 관리하고 있는지 확인
+  * 개인정보취급자 목록 포함 사항
+   ① 개인정보취급자 목록 ② 업무시작일 ③ 업무종료일 ④ 역할 ⑤ 권한 상태 등
+- 개인정보취급자 명단과 실 근무 직원의 계정정보 일치 여부
+- 부여한 계정 중 비근무자 (외부인, 퇴직자 등) 존재 여부">
+      <div class="card-head">
+        <div>
+          <span class="num">04</span>
+          <span class="area">조직관리</span>
+          <h3>임직원관리</h3>
+        </div>
+        <span class="evidence">표준4</span>
+      </div>
+      <div class="check-question">개인정보취급자(파트너점 임직원) 목록을 최신화하여 관리하고 있는가?</div>
+      <details open>
+        <summary>점검세부기준</summary>
+        <p>- 수탁업무 개인정보취급자 명단 및 최신화 여부 확인<br>- 개인정보취급자의 관리 및 통제를 위한 별도의 관리문서 혹은 내부 시스템으로 관리하고 있는지 확인<br>  * 개인정보취급자 목록 포함 사항<br>   ① 개인정보취급자 목록 ② 업무시작일 ③ 업무종료일 ④ 역할 ⑤ 권한 상태 등<br>- 개인정보취급자 명단과 실 근무 직원의 계정정보 일치 여부<br>- 부여한 계정 중 비근무자 (외부인, 퇴직자 등) 존재 여부</p>
+      </details>
+      <div class="grid-2">
+        <div class="box">
+          <h4>현장 핵심 확인</h4>
+          <ul><li>개인정보취급자 명단 최신화 여부</li><li>계정자·비계정자 포함 여부</li><li>업무시작일·종료일·역할·권한상태 관리</li><li>실근무자와 계정정보 일치</li><li>외부인·퇴직자 계정 잔존 여부</li></ul>
+        </div>
+        <div class="box">
+          <h4>수검자 인터뷰 스크립트</h4>
+          <ul><li>현재 고객정보를 취급하는 직원은 총 몇 명으로 관리하고 계신가요?</li><li>시스템 계정이 없는 직원도 고객정보를 확인하거나 처리하는 경우가 있나요?</li><li>퇴사자 계정 삭제는 어떤 절차로 요청하고 계신가요?</li><li>취급자 명단은 얼마나 자주 갱신하고 계신가요?</li></ul>
+        </div>
+        <div class="box">
+          <h4>확인 증빙</h4>
+          <ul><li>개인정보취급자 관리대장</li><li>개인정보보호 책임자 지정서</li><li>계정 목록</li><li>입퇴사자 관리자료</li></ul>
+        </div>
+        <div class="box danger">
+          <h4>미흡 징후</h4>
+          <ul><li>퇴사자 계정 잔존</li><li>명단에 없는 직원이 고객정보 취급</li><li>업무종료일 미기재</li><li>권한상태 미관리</li></ul>
+        </div>
+      </div>
+      <div class="judgement"><b>양호 판단 기준</b> · 실근무자, 취급자 명단, 시스템 계정, 교육대상이 서로 일치함</div>
+    </article>
+    
+
+    <article class="guide-card searchable" id="item-5" data-area="조직관리" data-text="조직관리 정보보호서약서 개인정보취급자(파트너점 임직원)를 대상으로 정보보호서약서 징구 및 보관하고 있는가? - 수탁업무를 수행하는 개인정보취급자의 개인정보보호 서약서 징구 여부
+  * LG유플러스 업무처리시스템 계정 발급자, 비발급자 포함
+  * LG유플러스 업무처리시스템 계정 발급자는 LG유플러스 정보보안서약서로 대체 가능">
+      <div class="card-head">
+        <div>
+          <span class="num">05</span>
+          <span class="area">조직관리</span>
+          <h3>정보보호서약서</h3>
+        </div>
+        <span class="evidence">표준5</span>
+      </div>
+      <div class="check-question">개인정보취급자(파트너점 임직원)를 대상으로 정보보호서약서 징구 및 보관하고 있는가?</div>
+      <details open>
+        <summary>점검세부기준</summary>
+        <p>- 수탁업무를 수행하는 개인정보취급자의 개인정보보호 서약서 징구 여부<br>  * LG유플러스 업무처리시스템 계정 발급자, 비발급자 포함<br>  * LG유플러스 업무처리시스템 계정 발급자는 LG유플러스 정보보안서약서로 대체 가능</p>
+      </details>
+      <div class="grid-2">
+        <div class="box">
+          <h4>현장 핵심 확인</h4>
+          <ul><li>개인정보취급자 전원 서약서 작성 여부</li><li>시스템 계정 발급자·비발급자 모두 포함</li><li>LG유플러스 정보보안서약서 대체 가능 여부</li><li>퇴직자 서약 또는 자료반납 확인 여부</li></ul>
+        </div>
+        <div class="box">
+          <h4>수검자 인터뷰 스크립트</h4>
+          <ul><li>정보보호서약서는 보통 언제 작성하도록 하고 계신가요?</li><li>시스템 계정이 없는 직원도 서약서를 작성하고 계신가요?</li><li>퇴사 시 별도 서약이나 자료반납 확인도 진행하고 계신가요?</li><li>작성된 서약서는 어디에 보관하고 계신가요?</li></ul>
+        </div>
+        <div class="box">
+          <h4>확인 증빙</h4>
+          <ul><li>개인정보보호 서약서</li><li>LG유플러스 정보보안서약서</li><li>퇴직서약서</li><li>전자서약 이력</li></ul>
+        </div>
+        <div class="box danger">
+          <h4>미흡 징후</h4>
+          <ul><li>일부 직원 누락</li><li>오래된 서약서만 존재</li><li>서명·일자 없음</li><li>계정자만 작성하고 실무 취급자 누락</li></ul>
+        </div>
+      </div>
+      <div class="judgement"><b>양호 판단 기준</b> · 취급자 명단 기준 전원 서약서가 있고 작성일자와 서명이 확인됨</div>
+    </article>
+    
+
+    <article class="guide-card searchable" id="item-6" data-area="물리보안" data-text="물리보안 시건장치 개인정보가 포함된 서류 등을 잠금장치가 있는 안전한 장소에 보관하고 있는가? - 목적 달성이 안된 개인정보 포함 서류 등을 잠금장치가 있는 안전한 장소(캐비닛, 문서고, 금고)에 보관 여부
+ * 단순 시건이 끝이 아니라 열쇠, 비밀번호가 안전하게 관리되고 있는지 확인 
+   (예, 열쇠가 꽂혀있는 경우, 비밀번호가 작성된 포스트잇 등이 공유되고 있는 경우)
+    └ 단, 근무자가 근무하는 장소의 경우 근무자가 근무하고 있는 경우는 예외">
+      <div class="card-head">
+        <div>
+          <span class="num">06</span>
+          <span class="area">물리보안</span>
+          <h3>시건장치</h3>
+        </div>
+        <span class="evidence">표준6</span>
+      </div>
+      <div class="check-question">개인정보가 포함된 서류 등을 잠금장치가 있는 안전한 장소에 보관하고 있는가?</div>
+      <details open>
+        <summary>점검세부기준</summary>
+        <p>- 목적 달성이 안된 개인정보 포함 서류 등을 잠금장치가 있는 안전한 장소(캐비닛, 문서고, 금고)에 보관 여부<br> * 단순 시건이 끝이 아니라 열쇠, 비밀번호가 안전하게 관리되고 있는지 확인 <br>   (예, 열쇠가 꽂혀있는 경우, 비밀번호가 작성된 포스트잇 등이 공유되고 있는 경우)<br>    └ 단, 근무자가 근무하는 장소의 경우 근무자가 근무하고 있는 경우는 예외</p>
+      </details>
+      <div class="grid-2">
+        <div class="box">
+          <h4>현장 핵심 확인</h4>
+          <ul><li>개인정보 포함 서류 존재 여부</li><li>잠금장치 있는 캐비닛·문서고·금고 보관</li><li>열쇠·비밀번호 관리</li><li>프린터·책상 위 방치 여부</li><li>보관기간 경과 서류 파기 여부</li></ul>
+        </div>
+        <div class="box">
+          <h4>수검자 인터뷰 스크립트</h4>
+          <ul><li>고객 신청서나 계약서는 평소 어디에 보관하고 계신가요?</li><li>캐비닛 열쇠는 어느 분이 관리하고 계신가요?</li><li>보관기간이 지난 서류는 어떤 방식으로 파기하고 계신가요?</li><li>출력물은 출력 후 누가 확인하고 회수하고 계신가요?</li></ul>
+        </div>
+        <div class="box">
+          <h4>확인 증빙</h4>
+          <ul><li>잠금장치 확인</li><li>문서보관함 사진(개인정보 미포함)</li><li>파기대장</li><li>문서관리 기준</li></ul>
+        </div>
+        <div class="box danger">
+          <h4>미흡 징후</h4>
+          <ul><li>캐비닛 미시건</li><li>열쇠 꽂힘</li><li>비밀번호 포스트잇 노출</li><li>프린터 출력물 방치</li><li>보관기간 경과 문서 혼재</li></ul>
+        </div>
+      </div>
+      <div class="judgement"><b>양호 판단 기준</b> · 개인정보 서류가 잠금장치 있는 장소에 보관되고 열쇠관리자가 지정됨</div>
+    </article>
+    
+
+    <article class="guide-card searchable" id="item-7" data-area="물리보안" data-text="물리보안 출입통제 출입통제를 위한 장치의 설치와 운영을 하고 있는가? - 사무실 내 허가된 자만이 출입할 수 있도록 출입통제 장치를 설치 및 운영 여부
+- 개인영상정보 파일을 안전하게 보관여부(암호화, 독립적 공간 내 저장 등)
+- CCTV(고정형영상정보처리기기) 안내판 설치 여부 (CCTV를 설치 운영하는 경우)
+- CCTV 서버 및 모니터링 PC를 독립된 공간 내 보관 여부 (CCTV를 설치 운영하는 경우)
+- 열람 권한 관리가 되고 있는지 여부">
+      <div class="card-head">
+        <div>
+          <span class="num">07</span>
+          <span class="area">물리보안</span>
+          <h3>출입통제</h3>
+        </div>
+        <span class="evidence">표준7</span>
+      </div>
+      <div class="check-question">출입통제를 위한 장치의 설치와 운영을 하고 있는가?</div>
+      <details open>
+        <summary>점검세부기준</summary>
+        <p>- 사무실 내 허가된 자만이 출입할 수 있도록 출입통제 장치를 설치 및 운영 여부<br>- 개인영상정보 파일을 안전하게 보관여부(암호화, 독립적 공간 내 저장 등)<br>- CCTV(고정형영상정보처리기기) 안내판 설치 여부 (CCTV를 설치 운영하는 경우)<br>- CCTV 서버 및 모니터링 PC를 독립된 공간 내 보관 여부 (CCTV를 설치 운영하는 경우)<br>- 열람 권한 관리가 되고 있는지 여부</p>
+      </details>
+      <div class="grid-2">
+        <div class="box">
+          <h4>현장 핵심 확인</h4>
+          <ul><li>허가된 자만 출입 가능한 구조인지</li><li>출입통제 장치 설치·운영</li><li>CCTV 설치 시 안내판</li><li>영상파일 안전 보관</li><li>CCTV 서버·모니터링 PC 독립 보관</li><li>열람권한 관리</li></ul>
+        </div>
+        <div class="box">
+          <h4>수검자 인터뷰 스크립트</h4>
+          <ul><li>외부인이 사무실에 방문할 때 출입은 어떤 방식으로 관리하고 계신가요?</li><li>CCTV를 운영하고 계신가요?</li><li>촬영된 영상은 어느 분들이 열람할 수 있도록 관리하고 계신가요?</li><li>영상 보관기간은 어떻게 정해두고 계신가요?</li></ul>
+        </div>
+        <div class="box">
+          <h4>확인 증빙</h4>
+          <ul><li>출입문 잠금장치</li><li>CCTV 안내판</li><li>영상 보관장소</li><li>열람권한 관리 내역</li></ul>
+        </div>
+        <div class="box danger">
+          <h4>미흡 징후</h4>
+          <ul><li>사무실 상시 개방</li><li>외부인 출입통제 없음</li><li>CCTV 안내판 없음</li><li>영상 열람자 제한 없음</li><li>모니터링 PC 공개장소 방치</li></ul>
+        </div>
+      </div>
+      <div class="judgement"><b>양호 판단 기준</b> · 출입통제가 운영되고 CCTV 운영 시 안내판·보관·열람권한이 관리됨</div>
+    </article>
+    
+
+    <article class="guide-card searchable" id="item-8" data-area="물리보안" data-text="물리보안 공간분리 LG유플러스 업무처리스시스템 접속PC와 비접속PC가 별도로 분리되어 운영되고 있는가? - 업무용 전산PC와 비접속PC의 공간이 분리되어 있는지 확인
+  * 업무 환경상 공간 분리가 불가할 경우, 파티션 등을 통해 분리">
+      <div class="card-head">
+        <div>
+          <span class="num">08</span>
+          <span class="area">물리보안</span>
+          <h3>공간분리</h3>
+        </div>
+        <span class="evidence">표준8</span>
+      </div>
+      <div class="check-question">LG유플러스 업무처리스시스템 접속PC와 비접속PC가 별도로 분리되어 운영되고 있는가?</div>
+      <details open>
+        <summary>점검세부기준</summary>
+        <p>- 업무용 전산PC와 비접속PC의 공간이 분리되어 있는지 확인<br>  * 업무 환경상 공간 분리가 불가할 경우, 파티션 등을 통해 분리</p>
+      </details>
+      <div class="grid-2">
+        <div class="box">
+          <h4>현장 핵심 확인</h4>
+          <ul><li>LG유플러스 업무처리시스템 접속 PC 식별</li><li>비접속 PC와 분리</li><li>공간분리 불가 시 파티션 등 구분</li><li>접속 PC 사용자 제한</li><li>고객정보 임의 저장 여부</li></ul>
+        </div>
+        <div class="box">
+          <h4>수검자 인터뷰 스크립트</h4>
+          <ul><li>LG유플러스 시스템에 접속하는 PC는 총 몇 대인가요?</li><li>비접속 PC와는 어떤 방식으로 구분해두셨나요?</li><li>접속 PC는 어느 분들이 사용할 수 있도록 관리하고 계신가요?</li><li>접속 PC에 고객정보 파일을 저장하는 경우가 있나요?</li></ul>
+        </div>
+        <div class="box">
+          <h4>확인 증빙</h4>
+          <ul><li>PC 배치도</li><li>접속 PC 목록</li><li>라벨링 사진</li><li>파티션·구획 사진</li></ul>
+        </div>
+        <div class="box danger">
+          <h4>미흡 징후</h4>
+          <ul><li>접속 PC 구분 없음</li><li>공용 사용</li><li>비접속 PC에서도 고객정보 처리</li><li>공간분리 불가 사유만 있고 대체조치 없음</li></ul>
+        </div>
+      </div>
+      <div class="judgement"><b>양호 판단 기준</b> · 접속 PC가 명확히 식별되고 비접속 PC와 공간 또는 사용권한상 구분됨</div>
+    </article>
+    
+
+    <article class="guide-card searchable" id="item-9" data-area="개인정보수집" data-text="개인정보수집 개인정보수집 위탁받은 업무 범위 내에서, LG유플러스가 제공하는 시스템 등을 이용하여 고객정보를 수집하는가? - 자체 웹사이트 내 LG유플러스 제공시스템(onsale, homesale 등)과 무관한 별도의 개인정보 수집 경로가 있는지 확인
+- 개인정보 처리 위탁계약서에 명시된 개인정보와 개인정보 수집·이용 동의서의 개인정보 항목이 일치하는지 확인">
+      <div class="card-head">
+        <div>
+          <span class="num">09</span>
+          <span class="area">개인정보수집</span>
+          <h3>개인정보수집</h3>
+        </div>
+        <span class="evidence">표준9</span>
+      </div>
+      <div class="check-question">위탁받은 업무 범위 내에서, LG유플러스가 제공하는 시스템 등을 이용하여 고객정보를 수집하는가?</div>
+      <details open>
+        <summary>점검세부기준</summary>
+        <p>- 자체 웹사이트 내 LG유플러스 제공시스템(onsale, homesale 등)과 무관한 별도의 개인정보 수집 경로가 있는지 확인<br>- 개인정보 처리 위탁계약서에 명시된 개인정보와 개인정보 수집·이용 동의서의 개인정보 항목이 일치하는지 확인</p>
+      </details>
+      <div class="grid-2">
+        <div class="box">
+          <h4>현장 핵심 확인</h4>
+          <ul><li>LG유플러스 제공 시스템을 통한 수집 여부</li><li>자체 웹사이트·폼·엑셀 등 별도 수집경로 존재 여부</li><li>계약서상 개인정보 항목과 동의서 항목 일치</li><li>카카오톡·문자·메일 접수 여부</li><li>자체 영업·마케팅 활용 여부</li></ul>
+        </div>
+        <div class="box">
+          <h4>수검자 인터뷰 스크립트</h4>
+          <ul><li>고객정보는 보통 어떤 경로로 접수하고 계신가요?</li><li>별도 신청폼이나 자체 홈페이지를 사용하고 계신 부분이 있나요?</li><li>고객정보를 엑셀로 받아 관리하는 경우가 있나요?</li><li>수집하는 항목은 계약서와 동의서 기준과 일치하도록 관리하고 계신가요?</li></ul>
+        </div>
+        <div class="box">
+          <h4>확인 증빙</h4>
+          <ul><li>업무처리시스템 화면</li><li>수집·이용 동의서</li><li>위탁계약서</li><li>신청양식</li><li>별도 폼/웹사이트 사용 여부</li></ul>
+        </div>
+        <div class="box danger">
+          <h4>미흡 징후</h4>
+          <ul><li>구글폼/네이버폼 임의 사용</li><li>개인 메신저 접수</li><li>자체 DB 보관</li><li>동의서 없는 추가 항목 수집</li><li>마케팅 목적 전용</li></ul>
+        </div>
+      </div>
+      <div class="judgement"><b>양호 판단 기준</b> · 위탁 범위 내 LG유플러스 제공 시스템을 사용하고 별도 수집경로가 없거나 승인·통제됨</div>
+    </article>
+    
+
+    <article class="guide-card searchable" id="item-10" data-area="개인정보이용 및 제공" data-text="개인정보이용 및 제공 재위탁 위탁받은 업무를 재위탁하는 경우, 위탁사(LG유플러스)의 동의를 득하였는가? - 개인정보 처리 업무 재위탁 시 재위탁 사실을 위탁사에게 미리 알리고 동의를 받았는지 여부
+- 위탁사의 동의 여부를 확인 받은 내역(공문, 계약서, 재위탁 동의 승인서 등)">
+      <div class="card-head">
+        <div>
+          <span class="num">10</span>
+          <span class="area">개인정보이용 및 제공</span>
+          <h3>재위탁</h3>
+        </div>
+        <span class="evidence">표준10</span>
+      </div>
+      <div class="check-question">위탁받은 업무를 재위탁하는 경우, 위탁사(LG유플러스)의 동의를 득하였는가?</div>
+      <details open>
+        <summary>점검세부기준</summary>
+        <p>- 개인정보 처리 업무 재위탁 시 재위탁 사실을 위탁사에게 미리 알리고 동의를 받았는지 여부<br>- 위탁사의 동의 여부를 확인 받은 내역(공문, 계약서, 재위탁 동의 승인서 등)</p>
+      </details>
+      <div class="grid-2">
+        <div class="box">
+          <h4>현장 핵심 확인</h4>
+          <ul><li>재위탁 업무 존재 여부</li><li>재위탁 대상 업체와 업무범위</li><li>LG유플러스 사전 고지·동의 여부</li><li>공문·계약서·승인서 보유</li><li>외부업체의 고객정보 접근 가능성</li></ul>
+        </div>
+        <div class="box">
+          <h4>수검자 인터뷰 스크립트</h4>
+          <ul><li>외부업체가 고객정보 처리업무를 함께 수행하는 경우가 있나요?</li><li>배송·설치·TM·전산관리·문서파기 업체를 이용하고 계신가요?</li><li>LG유플러스의 사전 동의자료는 보관하고 계신가요?</li><li>해당 업체가 고객정보를 확인할 수 있는 구조인가요?</li></ul>
+        </div>
+        <div class="box">
+          <h4>확인 증빙</h4>
+          <ul><li>판매 및 개인정보처리 위탁계약서</li><li>재위탁 동의 승인서</li><li>공문/이메일</li><li>재위탁 계약서</li><li>외부업체 목록</li></ul>
+        </div>
+        <div class="box danger">
+          <h4>미흡 징후</h4>
+          <ul><li>외부업체 사용하나 동의자료 없음</li><li>원격지원 업체 고객정보 접근 가능</li><li>구두 승인만 주장</li><li>재위탁 목록 미관리</li></ul>
+        </div>
+      </div>
+      <div class="judgement"><b>양호 판단 기준</b> · 재위탁 해당 여부가 식별되고, 해당 시 위탁사 동의 및 계약·승인자료가 확인됨</div>
+    </article>
+    
+
+    <article class="guide-card searchable" id="item-11" data-area="개인정보이용 및 제공" data-text="개인정보이용 및 제공 관리감독 재수탁자가 수탁자와 동일하게 개인정보보호를 위한 조치를 적절하게 수행하였는지 관리감독하고 있는가? - 재수탁사에 대해 정기적인 관리·감독을 하고 있는지 여부
+- 재수탁자가 수탁자와 동일하게 개인정보보호를 위한 조치를 적절하게 수행하였는지 여부
+- 계약서 내 보안약정에 명시된 개인정보 파기 기준 준수여부
+- 파기한 날짜, 파기 항목, 파기 사유와 근거 등">
+      <div class="card-head">
+        <div>
+          <span class="num">11</span>
+          <span class="area">개인정보이용 및 제공</span>
+          <h3>관리감독</h3>
+        </div>
+        <span class="evidence">표준11</span>
+      </div>
+      <div class="check-question">재수탁자가 수탁자와 동일하게 개인정보보호를 위한 조치를 적절하게 수행하였는지 관리감독하고 있는가?</div>
+      <details open>
+        <summary>점검세부기준</summary>
+        <p>- 재수탁사에 대해 정기적인 관리·감독을 하고 있는지 여부<br>- 재수탁자가 수탁자와 동일하게 개인정보보호를 위한 조치를 적절하게 수행하였는지 여부<br>- 계약서 내 보안약정에 명시된 개인정보 파기 기준 준수여부<br>- 파기한 날짜, 파기 항목, 파기 사유와 근거 등</p>
+      </details>
+      <div class="grid-2">
+        <div class="box">
+          <h4>현장 핵심 확인</h4>
+          <ul><li>재수탁자 정기 관리·감독 여부</li><li>재수탁자 보안약정</li><li>재수탁자 개인정보보호 조치 확인</li><li>파기일자·항목·사유·근거 기록</li><li>교육·서약·점검 내역</li></ul>
+        </div>
+        <div class="box">
+          <h4>수검자 인터뷰 스크립트</h4>
+          <ul><li>재수탁자 점검은 어떤 방식으로 진행하고 계신가요?</li><li>재수탁자의 개인정보 파기 여부도 별도로 확인하고 계신가요?</li><li>보안약정이나 서약서는 받고 계신가요?</li><li>재수탁자에게 개인정보보호 기준이나 교육자료를 안내하고 계신가요?</li></ul>
+        </div>
+        <div class="box">
+          <h4>확인 증빙</h4>
+          <ul><li>재수탁자 관리점검표</li><li>보안약정서</li><li>파기확인서</li><li>파기대장</li><li>교육/서약 자료</li></ul>
+        </div>
+        <div class="box danger">
+          <h4>미흡 징후</h4>
+          <ul><li>재수탁자에게 전적으로 맡김</li><li>파기확인 부재</li><li>계약서상 보안조항 없음</li><li>정기점검 없음</li></ul>
+        </div>
+      </div>
+      <div class="judgement"><b>양호 판단 기준</b> · 재수탁자 관리점검, 보안약정, 파기확인 등 관리감독 증빙이 확인됨</div>
+    </article>
+    
+      </section>
+
+      <section id="qa" class="block">
+        <h2>5. 현장 질문 대응집</h2>
+        <div class="notice">
+          <b>답변 방식</b><br>
+          수검자의 질문에는 “기준 설명 → 현장 확인 필요성 → 대체증빙 또는 개선방향” 순서로 답변하는 것이 좋습니다. 법령 조문을 길게 설명하기보다, 점검항목과 실제 위험을 연결해 안내합니다.
+        </div>
+        <div id="emptyQa" class="empty">검색 조건에 맞는 질문이 없습니다.</div>
+        
+    <section class="qa-section" id="qa-점검 절차·목적·권한">
+      <h3>점검 절차·목적·권한 <span>8개</span></h3>
+      
+        <details class="qa searchable" data-text="점검 절차·목적·권한 오늘 점검의 목적이 무엇인가요? LG유플러스 고객정보를 처리하는 세일즈파트너 사무실의 개인정보 보호조치 운영상태를 확인하고, 미흡사항을 개선하기 위한 절차입니다. 처벌 목적이 아니라 실제 업무흐름에서 고객정보가 안전하게 관리되는지 확인하는 것입니다. 점검 목적을 짧게 설명하고, 점검항목은 체크리스트 11개 기준임을 안내합니다.">
+          <summary><span class="qno">Q01</span> 오늘 점검의 목적이 무엇인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>LG유플러스 고객정보를 처리하는 세일즈파트너 사무실의 개인정보 보호조치 운영상태를 확인하고, 미흡사항을 개선하기 위한 절차입니다. 처벌 목적이 아니라 실제 업무흐름에서 고객정보가 안전하게 관리되는지 확인하는 것입니다.</p>
+            <p class="note"><b>점검관 메모</b> · 점검 목적을 짧게 설명하고, 점검항목은 체크리스트 11개 기준임을 안내합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="점검 절차·목적·권한 법적으로 꼭 받아야 하는 점검인가요? 개인정보 처리업무 위탁관계에서는 위탁자가 수탁자의 개인정보 처리현황과 보호조치를 관리·감독할 필요가 있습니다. 오늘 점검은 그 관리·감독 절차의 일환입니다. 수검자가 부담을 느끼지 않도록 법령명만 나열하기보다 위탁업무 관리 필요성으로 설명합니다.">
+          <summary><span class="qno">Q02</span> 법적으로 꼭 받아야 하는 점검인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>개인정보 처리업무 위탁관계에서는 위탁자가 수탁자의 개인정보 처리현황과 보호조치를 관리·감독할 필요가 있습니다. 오늘 점검은 그 관리·감독 절차의 일환입니다.</p>
+            <p class="note"><b>점검관 메모</b> · 수검자가 부담을 느끼지 않도록 법령명만 나열하기보다 위탁업무 관리 필요성으로 설명합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="점검 절차·목적·권한 점검을 거부하면 어떻게 되나요? 점검은 위탁업무 수행과 관련된 보호조치 확인 절차이므로, 확인이 어려운 항목은 증빙 미제출 또는 확인불가로 기록될 수 있습니다. 가능한 범위에서 자료를 확인하고, 부재 자료는 사후 제출로 정리하겠습니다. 강압적으로 표현하지 말고 ‘확인불가 기록’과 ‘사후 제출’ 중심으로 안내합니다.">
+          <summary><span class="qno">Q03</span> 점검을 거부하면 어떻게 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>점검은 위탁업무 수행과 관련된 보호조치 확인 절차이므로, 확인이 어려운 항목은 증빙 미제출 또는 확인불가로 기록될 수 있습니다. 가능한 범위에서 자료를 확인하고, 부재 자료는 사후 제출로 정리하겠습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 강압적으로 표현하지 말고 ‘확인불가 기록’과 ‘사후 제출’ 중심으로 안내합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="점검 절차·목적·권한 점검 결과는 어디까지 공유되나요? 점검 결과는 고객정보 보호 수준 확인 및 개선조치 관리를 위해 위탁사와 관련 담당부서에 공유될 수 있습니다. 점검 중 확인한 개인정보는 점검 목적 외로 사용하지 않습니다. 개별 직원 비난이 아니라 조직 개선 목적임을 강조합니다.">
+          <summary><span class="qno">Q04</span> 점검 결과는 어디까지 공유되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>점검 결과는 고객정보 보호 수준 확인 및 개선조치 관리를 위해 위탁사와 관련 담당부서에 공유될 수 있습니다. 점검 중 확인한 개인정보는 점검 목적 외로 사용하지 않습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 개별 직원 비난이 아니라 조직 개선 목적임을 강조합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="점검 절차·목적·권한 현장에서 바로 조치하면 미흡이 아닌가요? 현장 즉시조치는 긍정적으로 기록할 수 있습니다. 다만 점검 시점에 기준 미충족 사실이 확인된 경우에는 미흡 또는 보완 필요로 기록될 수 있으며, 즉시조치 내역을 함께 남깁니다. 조치 전 상태와 조치 후 상태를 구분해 기록합니다.">
+          <summary><span class="qno">Q05</span> 현장에서 바로 조치하면 미흡이 아닌가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>현장 즉시조치는 긍정적으로 기록할 수 있습니다. 다만 점검 시점에 기준 미충족 사실이 확인된 경우에는 미흡 또는 보완 필요로 기록될 수 있으며, 즉시조치 내역을 함께 남깁니다.</p>
+            <p class="note"><b>점검관 메모</b> · 조치 전 상태와 조치 후 상태를 구분해 기록합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="점검 절차·목적·권한 사진 촬영은 꼭 해야 하나요? 사진은 현장 상태를 객관적으로 기록하기 위한 용도입니다. 고객명, 연락처, 신청서, 신분증 등 개인정보가 포함된 화면이나 문서는 촬영하지 않으며 필요한 경우 마스킹 후 촬영합니다. 촬영 거부 시 개인정보 없는 범위의 대체 증빙을 요청합니다.">
+          <summary><span class="qno">Q06</span> 사진 촬영은 꼭 해야 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>사진은 현장 상태를 객관적으로 기록하기 위한 용도입니다. 고객명, 연락처, 신청서, 신분증 등 개인정보가 포함된 화면이나 문서는 촬영하지 않으며 필요한 경우 마스킹 후 촬영합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 촬영 거부 시 개인정보 없는 범위의 대체 증빙을 요청합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="점검 절차·목적·권한 점검관이 PC나 문서를 직접 열람해도 되나요? 수검자 동의와 안내 하에 점검항목 확인에 필요한 범위에서만 확인합니다. 개인정보 내용 자체를 수집하려는 목적이 아니며, 파일 존재·보관위치·암호화·삭제 여부 등 보호조치 중심으로 봅니다. 민감한 화면은 수검자가 직접 조작하게 하고 점검관은 상태만 확인합니다.">
+          <summary><span class="qno">Q07</span> 점검관이 PC나 문서를 직접 열람해도 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>수검자 동의와 안내 하에 점검항목 확인에 필요한 범위에서만 확인합니다. 개인정보 내용 자체를 수집하려는 목적이 아니며, 파일 존재·보관위치·암호화·삭제 여부 등 보호조치 중심으로 봅니다.</p>
+            <p class="note"><b>점검관 메모</b> · 민감한 화면은 수검자가 직접 조작하게 하고 점검관은 상태만 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="점검 절차·목적·권한 오늘 자료를 다 못 내면 어떻게 하나요? 현장에서 확인 가능한 자료는 확인하고, 준비되지 않은 자료는 사후 제출자료로 정리하겠습니다. 다만 제출기한과 제출자료명을 명확히 남겨야 합니다. 사후 제출 리스트를 즉시 작성합니다.">
+          <summary><span class="qno">Q08</span> 오늘 자료를 다 못 내면 어떻게 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>현장에서 확인 가능한 자료는 확인하고, 준비되지 않은 자료는 사후 제출자료로 정리하겠습니다. 다만 제출기한과 제출자료명을 명확히 남겨야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 사후 제출 리스트를 즉시 작성합니다.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+
+    <section class="qa-section" id="qa-내부관리·지침 현행화">
+      <h3>내부관리·지침 현행화 <span>6개</span></h3>
+      
+        <details class="qa searchable" data-text="내부관리·지침 현행화 본사에서 내려온 지침만 있으면 충분한가요? 본사 지침을 활용할 수 있습니다. 다만 해당 사무실 또는 POS에 실제 적용되는 담당자, 적용범위, 보관·교육·점검 방식이 확인되어야 합니다. 표준1과 POS별 담당자 지정 여부를 함께 확인합니다.">
+          <summary><span class="qno">Q09</span> 본사에서 내려온 지침만 있으면 충분한가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>본사 지침을 활용할 수 있습니다. 다만 해당 사무실 또는 POS에 실제 적용되는 담당자, 적용범위, 보관·교육·점검 방식이 확인되어야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 표준1과 POS별 담당자 지정 여부를 함께 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="내부관리·지침 현행화 올해 변경사항이 없는데도 갱신해야 하나요? 변경사항이 없더라도 연 1회 이상 검토했다는 기록을 남기는 것이 좋습니다. 검토일자, 검토자, 변경사항 없음 여부가 확인되면 현행화 증빙으로 활용할 수 있습니다. ‘개정’이 아니라 ‘검토·현행화’ 관점으로 안내합니다.">
+          <summary><span class="qno">Q10</span> 올해 변경사항이 없는데도 갱신해야 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>변경사항이 없더라도 연 1회 이상 검토했다는 기록을 남기는 것이 좋습니다. 검토일자, 검토자, 변경사항 없음 여부가 확인되면 현행화 증빙으로 활용할 수 있습니다.</p>
+            <p class="note"><b>점검관 메모</b> · ‘개정’이 아니라 ‘검토·현행화’ 관점으로 안내합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="내부관리·지침 현행화 대표 결재가 꼭 있어야 하나요? 점검에서는 책임 있는 관리체계가 확인되는지가 중요합니다. 대표 또는 관리책임자의 승인·확인 흔적이 있으면 관리체계 증빙으로 적절합니다. 회사 규모에 맞는 승인 흔적을 폭넓게 인정하되 담당자 미지정은 지적합니다.">
+          <summary><span class="qno">Q11</span> 대표 결재가 꼭 있어야 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>점검에서는 책임 있는 관리체계가 확인되는지가 중요합니다. 대표 또는 관리책임자의 승인·확인 흔적이 있으면 관리체계 증빙으로 적절합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 회사 규모에 맞는 승인 흔적을 폭넓게 인정하되 담당자 미지정은 지적합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="내부관리·지침 현행화 여러 POS를 하나의 지침으로 관리해도 되나요? 가능합니다. 다만 하나의 지침으로 관리하는 경우 해당 지침이 어느 POS까지 적용되는지, POS별 담당자가 누구인지 명확해야 합니다. 대상 POS 목록 또는 P코드 매핑을 요청합니다.">
+          <summary><span class="qno">Q12</span> 여러 POS를 하나의 지침으로 관리해도 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>가능합니다. 다만 하나의 지침으로 관리하는 경우 해당 지침이 어느 POS까지 적용되는지, POS별 담당자가 누구인지 명확해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 대상 POS 목록 또는 P코드 매핑을 요청합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="내부관리·지침 현행화 파일로만 보관해도 인정되나요? 전자파일 보관도 가능합니다. 다만 최신본 여부, 접근 가능 위치, 담당자, 개정일자 또는 검토일자가 확인되어야 합니다. 파일명·작성일만으로 부족하면 문서 내 개정 이력을 확인합니다.">
+          <summary><span class="qno">Q13</span> 파일로만 보관해도 인정되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>전자파일 보관도 가능합니다. 다만 최신본 여부, 접근 가능 위치, 담당자, 개정일자 또는 검토일자가 확인되어야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 파일명·작성일만으로 부족하면 문서 내 개정 이력을 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="내부관리·지침 현행화 내부관리계획과 고객정보보호 이행지침은 같은 건가요? 명칭이 반드시 같을 필요는 없습니다. 고객정보 보호를 위한 내부 기준, 담당자, 교육, 점검, 보관, 파기, 재위탁 관리사항이 포함되어 있으면 실질 내용으로 판단합니다. 문서 제목보다 내용 충족 여부를 봅니다.">
+          <summary><span class="qno">Q14</span> 내부관리계획과 고객정보보호 이행지침은 같은 건가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>명칭이 반드시 같을 필요는 없습니다. 고객정보 보호를 위한 내부 기준, 담당자, 교육, 점검, 보관, 파기, 재위탁 관리사항이 포함되어 있으면 실질 내용으로 판단합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 문서 제목보다 내용 충족 여부를 봅니다.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+
+    <section class="qa-section" id="qa-교육관리">
+      <h3>교육관리 <span>7개</span></h3>
+      
+        <details class="qa searchable" data-text="교육관리 개인정보배움터 수료증도 인정되나요? 인정 가능합니다. 성명, 과정명, 수료일자 등 이수 사실이 확인되어야 하며, 개인정보취급자 전원이 이수했는지 확인해야 합니다. 취급자 명단과 수료증 명단을 대조합니다.">
+          <summary><span class="qno">Q15</span> 개인정보배움터 수료증도 인정되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>인정 가능합니다. 성명, 과정명, 수료일자 등 이수 사실이 확인되어야 하며, 개인정보취급자 전원이 이수했는지 확인해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 취급자 명단과 수료증 명단을 대조합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="교육관리 교육 사진이 없으면 미흡인가요? 사진이 반드시 유일한 증빙은 아닙니다. 교육일시, 교육내용, 참석자, 교육자료, 수료증 등 교육 이행을 확인할 수 있는 자료가 있으면 됩니다. 사진 요구 대신 대체증빙을 먼저 확인합니다.">
+          <summary><span class="qno">Q16</span> 교육 사진이 없으면 미흡인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>사진이 반드시 유일한 증빙은 아닙니다. 교육일시, 교육내용, 참석자, 교육자료, 수료증 등 교육 이행을 확인할 수 있는 자료가 있으면 됩니다.</p>
+            <p class="note"><b>점검관 메모</b> · 사진 요구 대신 대체증빙을 먼저 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="교육관리 신규 입사자는 언제 교육해야 하나요? 고객정보 취급업무를 시작하기 전 또는 시작 직후 지체 없이 교육하는 것이 바람직합니다. 정기교육 전이라도 신규자 교육 기록을 남기는 것이 좋습니다. 업무시작일과 교육일자를 비교합니다.">
+          <summary><span class="qno">Q17</span> 신규 입사자는 언제 교육해야 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>고객정보 취급업무를 시작하기 전 또는 시작 직후 지체 없이 교육하는 것이 바람직합니다. 정기교육 전이라도 신규자 교육 기록을 남기는 것이 좋습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 업무시작일과 교육일자를 비교합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="교육관리 대표자도 교육 대상인가요? 대표자가 고객정보를 조회·관리하거나 개인정보보호 책임자 역할을 수행한다면 교육 대상에 포함하는 것이 적절합니다. 실제 취급 또는 관리권한 여부를 확인합니다.">
+          <summary><span class="qno">Q18</span> 대표자도 교육 대상인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>대표자가 고객정보를 조회·관리하거나 개인정보보호 책임자 역할을 수행한다면 교육 대상에 포함하는 것이 적절합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 실제 취급 또는 관리권한 여부를 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="교육관리 소규모라서 구두교육만 했습니다. 인정되나요? 구두교육도 가능하나 점검에서는 교육 사실을 확인할 수 있어야 합니다. 교육일시, 참석자, 교육내용을 간단한 기록으로 남겨야 합니다. 현장에서 간이 교육확인서 양식을 안내할 수 있습니다.">
+          <summary><span class="qno">Q19</span> 소규모라서 구두교육만 했습니다. 인정되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>구두교육도 가능하나 점검에서는 교육 사실을 확인할 수 있어야 합니다. 교육일시, 참석자, 교육내용을 간단한 기록으로 남겨야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 현장에서 간이 교육확인서 양식을 안내할 수 있습니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="교육관리 미이수자가 한 명 있으면 전체 미흡인가요? 전체 교육관리 체계는 운영되었더라도 미이수자 관리가 필요합니다. 미이수자 재교육 예정일과 관리내역이 있으면 보완사항으로 기록할 수 있습니다. 미이수자 사유와 재교육 계획을 확인합니다.">
+          <summary><span class="qno">Q20</span> 미이수자가 한 명 있으면 전체 미흡인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>전체 교육관리 체계는 운영되었더라도 미이수자 관리가 필요합니다. 미이수자 재교육 예정일과 관리내역이 있으면 보완사항으로 기록할 수 있습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 미이수자 사유와 재교육 계획을 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="교육관리 작년 교육자료를 올해도 써도 되나요? 자료 재사용은 가능하지만 올해 교육을 실제로 실시했는지, 최신 법령·업무 기준이 반영되었는지 확인되어야 합니다. 교육일자와 참석자 기록이 핵심입니다.">
+          <summary><span class="qno">Q21</span> 작년 교육자료를 올해도 써도 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>자료 재사용은 가능하지만 올해 교육을 실제로 실시했는지, 최신 법령·업무 기준이 반영되었는지 확인되어야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 교육일자와 참석자 기록이 핵심입니다.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+
+    <section class="qa-section" id="qa-이행관리·자체점검">
+      <h3>이행관리·자체점검 <span>5개</span></h3>
+      
+        <details class="qa searchable" data-text="이행관리·자체점검 자체점검 양식이 꼭 정해져 있나요? 정해진 단일 양식이 없어도 됩니다. 자체 보안점검표, 점검 메일, 체크 결과, 개선조치 내역 등 이행실태를 확인할 수 있는 자료면 됩니다. 표준3은 별도 양식 없음이므로 실질 증빙을 인정합니다.">
+          <summary><span class="qno">Q22</span> 자체점검 양식이 꼭 정해져 있나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>정해진 단일 양식이 없어도 됩니다. 자체 보안점검표, 점검 메일, 체크 결과, 개선조치 내역 등 이행실태를 확인할 수 있는 자료면 됩니다.</p>
+            <p class="note"><b>점검관 메모</b> · 표준3은 별도 양식 없음이므로 실질 증빙을 인정합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="이행관리·자체점검 자체점검을 안 했는데 오늘 점검으로 대체되나요? 오늘 점검은 위탁사 관리감독 성격의 현장점검이고, 자체점검은 수탁사 내부 이행관리입니다. 오늘 점검을 계기로 자체점검 체계를 마련하는 것이 필요합니다. 대체 가능하다고 단정하지 않습니다.">
+          <summary><span class="qno">Q23</span> 자체점검을 안 했는데 오늘 점검으로 대체되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>오늘 점검은 위탁사 관리감독 성격의 현장점검이고, 자체점검은 수탁사 내부 이행관리입니다. 오늘 점검을 계기로 자체점검 체계를 마련하는 것이 필요합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 대체 가능하다고 단정하지 않습니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="이행관리·자체점검 미흡사항이 없어서 개선조치 내역이 없습니다. 미흡사항이 없을 수는 있습니다. 다만 점검을 실시했다는 기록과 점검 결과가 남아 있어야 합니다. ‘점검결과 특이사항 없음’ 기록도 증빙이 될 수 있습니다.">
+          <summary><span class="qno">Q24</span> 미흡사항이 없어서 개선조치 내역이 없습니다.</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>미흡사항이 없을 수는 있습니다. 다만 점검을 실시했다는 기록과 점검 결과가 남아 있어야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · ‘점검결과 특이사항 없음’ 기록도 증빙이 될 수 있습니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="이행관리·자체점검 외부 컨설팅을 받은 자료로 대체할 수 있나요? 외부 컨설팅 자료도 참고할 수 있습니다. 다만 해당 자료가 이 사무실의 이행실태를 실제로 점검한 내용인지 확인해야 합니다. 범용 교육자료와 실제 점검자료를 구분합니다.">
+          <summary><span class="qno">Q25</span> 외부 컨설팅을 받은 자료로 대체할 수 있나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>외부 컨설팅 자료도 참고할 수 있습니다. 다만 해당 자료가 이 사무실의 이행실태를 실제로 점검한 내용인지 확인해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 범용 교육자료와 실제 점검자료를 구분합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="이행관리·자체점검 자체점검 주기는 꼭 연 1회인가요? 본 체크리스트 기준으로는 정기적, 연 1회 이상 수행 여부를 확인합니다. 위험이 높거나 미흡사항이 반복되는 경우 더 자주 점검하는 것이 바람직합니다. 파일 기준 점검세부기준에 맞춰 답합니다.">
+          <summary><span class="qno">Q26</span> 자체점검 주기는 꼭 연 1회인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>본 체크리스트 기준으로는 정기적, 연 1회 이상 수행 여부를 확인합니다. 위험이 높거나 미흡사항이 반복되는 경우 더 자주 점검하는 것이 바람직합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 파일 기준 점검세부기준에 맞춰 답합니다.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+
+    <section class="qa-section" id="qa-개인정보취급자·계정관리">
+      <h3>개인정보취급자·계정관리 <span>6개</span></h3>
+      
+        <details class="qa searchable" data-text="개인정보취급자·계정관리 개인정보취급자는 시스템 계정이 있는 사람만인가요? 아닙니다. 계정이 없어도 고객 신청서, 출력물, 상담자료, 고객명단 등을 취급한다면 개인정보취급자에 포함하여 관리하는 것이 바람직합니다. 계정자·비계정자 모두 확인합니다.">
+          <summary><span class="qno">Q27</span> 개인정보취급자는 시스템 계정이 있는 사람만인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>아닙니다. 계정이 없어도 고객 신청서, 출력물, 상담자료, 고객명단 등을 취급한다면 개인정보취급자에 포함하여 관리하는 것이 바람직합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 계정자·비계정자 모두 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="개인정보취급자·계정관리 아르바이트나 단기근무자도 포함해야 하나요? 고객정보를 취급한다면 근무 형태와 관계없이 포함하는 것이 적절합니다. 업무시작일과 종료일을 관리해야 합니다. 단기근무자 서약·교육도 확인합니다.">
+          <summary><span class="qno">Q28</span> 아르바이트나 단기근무자도 포함해야 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>고객정보를 취급한다면 근무 형태와 관계없이 포함하는 것이 적절합니다. 업무시작일과 종료일을 관리해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 단기근무자 서약·교육도 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="개인정보취급자·계정관리 휴직자는 명단에서 삭제해야 하나요? 삭제보다 권한상태를 ‘중지’ 등으로 관리하고, 실제 시스템 접근권한이 회수되었는지 확인하는 방식이 적절합니다. 계정 상태와 실제 접근 가능 여부를 확인합니다.">
+          <summary><span class="qno">Q29</span> 휴직자는 명단에서 삭제해야 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>삭제보다 권한상태를 ‘중지’ 등으로 관리하고, 실제 시스템 접근권한이 회수되었는지 확인하는 방식이 적절합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 계정 상태와 실제 접근 가능 여부를 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="개인정보취급자·계정관리 퇴사자 계정이 남아 있지만 사용하지 않습니다. 퇴사자 계정은 무단접속과 책임추적 곤란 위험이 있으므로 즉시 삭제 또는 권한 회수해야 합니다. 삭제 요청 및 처리 결과를 기록으로 남겨야 합니다. 퇴사일과 계정 삭제일을 비교합니다.">
+          <summary><span class="qno">Q30</span> 퇴사자 계정이 남아 있지만 사용하지 않습니다.</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>퇴사자 계정은 무단접속과 책임추적 곤란 위험이 있으므로 즉시 삭제 또는 권한 회수해야 합니다. 삭제 요청 및 처리 결과를 기록으로 남겨야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 퇴사일과 계정 삭제일을 비교합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="개인정보취급자·계정관리 직원이 가족이라 명단 관리가 꼭 필요한가요? 가족관계 여부와 관계없이 고객정보를 취급한다면 관리대상입니다. 명단, 역할, 권한상태를 기록해야 합니다. 소규모 사업장도 예외로 보지 않습니다.">
+          <summary><span class="qno">Q31</span> 직원이 가족이라 명단 관리가 꼭 필요한가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>가족관계 여부와 관계없이 고객정보를 취급한다면 관리대상입니다. 명단, 역할, 권한상태를 기록해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 소규모 사업장도 예외로 보지 않습니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="개인정보취급자·계정관리 한 계정을 같이 써도 업무상 편한데 문제인가요? 공용계정은 누가 고객정보를 조회·처리했는지 확인하기 어렵습니다. 가능한 개인별 계정을 사용하고, 불가피한 경우 사용자를 제한하고 책임추적 방안을 마련해야 합니다. 공용계정 사용 흔적이 있으면 위험사항으로 기록합니다.">
+          <summary><span class="qno">Q32</span> 한 계정을 같이 써도 업무상 편한데 문제인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>공용계정은 누가 고객정보를 조회·처리했는지 확인하기 어렵습니다. 가능한 개인별 계정을 사용하고, 불가피한 경우 사용자를 제한하고 책임추적 방안을 마련해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 공용계정 사용 흔적이 있으면 위험사항으로 기록합니다.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+
+    <section class="qa-section" id="qa-정보보호서약서">
+      <h3>정보보호서약서 <span>5개</span></h3>
+      
+        <details class="qa searchable" data-text="정보보호서약서 LG유플러스 정보보안서약서가 있으면 별도 서약서는 없어도 되나요? LG유플러스 업무처리시스템 계정 발급자는 해당 정보보안서약서로 대체 가능할 수 있습니다. 다만 계정이 없는 개인정보취급자도 서약 대상에서 누락되지 않아야 합니다. 계정자와 비계정자 구분을 확인합니다.">
+          <summary><span class="qno">Q33</span> LG유플러스 정보보안서약서가 있으면 별도 서약서는 없어도 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>LG유플러스 업무처리시스템 계정 발급자는 해당 정보보안서약서로 대체 가능할 수 있습니다. 다만 계정이 없는 개인정보취급자도 서약 대상에서 누락되지 않아야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 계정자와 비계정자 구분을 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="정보보호서약서 예전에 받은 서약서가 있는데 다시 받아야 하나요? 기존 서약서가 현재 근무자와 업무범위를 포괄하고 있으면 활용할 수 있습니다. 다만 작성일, 서명, 대상자, 최신 재직상태가 확인되어야 합니다. 오래된 서약서만 있고 신규자가 누락되었는지 확인합니다.">
+          <summary><span class="qno">Q34</span> 예전에 받은 서약서가 있는데 다시 받아야 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>기존 서약서가 현재 근무자와 업무범위를 포괄하고 있으면 활용할 수 있습니다. 다만 작성일, 서명, 대상자, 최신 재직상태가 확인되어야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 오래된 서약서만 있고 신규자가 누락되었는지 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="정보보호서약서 전자서명으로 받은 서약서도 인정되나요? 전자서명 또는 전자문서도 작성자, 작성일, 서약내용, 보관상태가 확인되면 증빙으로 활용할 수 있습니다. 캡처만 있으면 원본 확인 가능 여부를 봅니다.">
+          <summary><span class="qno">Q35</span> 전자서명으로 받은 서약서도 인정되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>전자서명 또는 전자문서도 작성자, 작성일, 서약내용, 보관상태가 확인되면 증빙으로 활용할 수 있습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 캡처만 있으면 원본 확인 가능 여부를 봅니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="정보보호서약서 퇴직서약서도 꼭 받아야 하나요? 점검항목의 직접 기준은 개인정보취급자 서약서이나, 퇴사 시 자료반납·비밀유지 확인을 남기는 것은 퇴사자 관리 측면에서 매우 바람직합니다. 퇴사자 계정 회수와 함께 확인합니다.">
+          <summary><span class="qno">Q36</span> 퇴직서약서도 꼭 받아야 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>점검항목의 직접 기준은 개인정보취급자 서약서이나, 퇴사 시 자료반납·비밀유지 확인을 남기는 것은 퇴사자 관리 측면에서 매우 바람직합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 퇴사자 계정 회수와 함께 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="정보보호서약서 오늘 누락자를 발견하면 바로 서약서 받으면 되나요? 즉시 작성은 개선조치로 기록할 수 있습니다. 다만 점검 시점에는 누락 사실이 있었으므로 누락 사유와 재발방지 방안을 함께 확인합니다. 즉시조치 전후를 구분해 기록합니다.">
+          <summary><span class="qno">Q37</span> 오늘 누락자를 발견하면 바로 서약서 받으면 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>즉시 작성은 개선조치로 기록할 수 있습니다. 다만 점검 시점에는 누락 사실이 있었으므로 누락 사유와 재발방지 방안을 함께 확인합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 즉시조치 전후를 구분해 기록합니다.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+
+    <section class="qa-section" id="qa-서류보관·시건장치">
+      <h3>서류보관·시건장치 <span>6개</span></h3>
+      
+        <details class="qa searchable" data-text="서류보관·시건장치 근무자가 항상 있어서 캐비닛을 안 잠가도 되나요? 근무 중 직원이 상주하는 경우 일부 예외로 볼 수 있으나, 근무 외 시간·외부인 방문·청소인력 접근 등을 고려하면 개인정보 포함 서류는 잠금 보관하는 것이 안전합니다. 근무시간 외 보관상태를 반드시 물어봅니다.">
+          <summary><span class="qno">Q38</span> 근무자가 항상 있어서 캐비닛을 안 잠가도 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>근무 중 직원이 상주하는 경우 일부 예외로 볼 수 있으나, 근무 외 시간·외부인 방문·청소인력 접근 등을 고려하면 개인정보 포함 서류는 잠금 보관하는 것이 안전합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 근무시간 외 보관상태를 반드시 물어봅니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="서류보관·시건장치 캐비닛 열쇠가 꽂혀 있으면 왜 문제인가요? 잠금장치가 있어도 열쇠가 꽂혀 있으면 누구나 열람할 수 있어 시건 효과가 없습니다. 열쇠 관리자를 지정하고 별도 보관해야 합니다. 열쇠 방치 사진은 개인정보가 나오지 않게 촬영합니다.">
+          <summary><span class="qno">Q39</span> 캐비닛 열쇠가 꽂혀 있으면 왜 문제인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>잠금장치가 있어도 열쇠가 꽂혀 있으면 누구나 열람할 수 있어 시건 효과가 없습니다. 열쇠 관리자를 지정하고 별도 보관해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 열쇠 방치 사진은 개인정보가 나오지 않게 촬영합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="서류보관·시건장치 비밀번호를 포스트잇에 적어두면 안 되나요? 비밀번호가 공개된 상태라면 접근통제가 무력화됩니다. 비밀번호는 담당자만 알 수 있도록 관리하고 주기적으로 변경해야 합니다. 비밀번호 자체는 기록하지 않습니다.">
+          <summary><span class="qno">Q40</span> 비밀번호를 포스트잇에 적어두면 안 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>비밀번호가 공개된 상태라면 접근통제가 무력화됩니다. 비밀번호는 담당자만 알 수 있도록 관리하고 주기적으로 변경해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 비밀번호 자체는 기록하지 않습니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="서류보관·시건장치 개인정보 서류가 없으면 해당없음인가요? 실제로 개인정보 포함 서류를 보관하지 않는다면 해당없음으로 볼 수 있습니다. 다만 신청서, 계약서, 출력물, 신분증 사본, 택배송장, 상담메모가 없는지 확인해야 합니다. 프린터 주변과 보관함을 확인합니다.">
+          <summary><span class="qno">Q41</span> 개인정보 서류가 없으면 해당없음인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>실제로 개인정보 포함 서류를 보관하지 않는다면 해당없음으로 볼 수 있습니다. 다만 신청서, 계약서, 출력물, 신분증 사본, 택배송장, 상담메모가 없는지 확인해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 프린터 주변과 보관함을 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="서류보관·시건장치 프린터에 잠깐 둔 출력물도 문제가 되나요? 고객정보가 포함된 출력물은 출력 즉시 회수해야 합니다. 외부인이나 다른 직원이 볼 수 있는 상태로 방치되면 노출 위험이 있습니다. 출력물 회수 원칙을 안내합니다.">
+          <summary><span class="qno">Q42</span> 프린터에 잠깐 둔 출력물도 문제가 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>고객정보가 포함된 출력물은 출력 즉시 회수해야 합니다. 외부인이나 다른 직원이 볼 수 있는 상태로 방치되면 노출 위험이 있습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 출력물 회수 원칙을 안내합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="서류보관·시건장치 신분증 사본은 별도 보관해도 되나요? 신분증 사본은 유출 위험이 매우 큰 자료입니다. 업무상 필요성과 보관기간을 확인하고, 목적 달성 후 즉시 파기하는 것이 원칙입니다. PC·휴대폰·메신저에 이미지가 남아 있는지도 확인합니다.">
+          <summary><span class="qno">Q43</span> 신분증 사본은 별도 보관해도 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>신분증 사본은 유출 위험이 매우 큰 자료입니다. 업무상 필요성과 보관기간을 확인하고, 목적 달성 후 즉시 파기하는 것이 원칙입니다.</p>
+            <p class="note"><b>점검관 메모</b> · PC·휴대폰·메신저에 이미지가 남아 있는지도 확인합니다.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+
+    <section class="qa-section" id="qa-출입통제·CCTV">
+      <h3>출입통제·CCTV <span>6개</span></h3>
+      
+        <details class="qa searchable" data-text="출입통제·CCTV CCTV가 없으면 무조건 미흡인가요? CCTV 설치 자체가 항상 필수는 아닙니다. 다만 사무실에 허가된 자만 출입할 수 있는지, 개인정보 보관공간에 비인가자가 접근할 수 없는지를 확인합니다. CCTV와 출입통제는 구분해 판단합니다.">
+          <summary><span class="qno">Q44</span> CCTV가 없으면 무조건 미흡인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>CCTV 설치 자체가 항상 필수는 아닙니다. 다만 사무실에 허가된 자만 출입할 수 있는지, 개인정보 보관공간에 비인가자가 접근할 수 없는지를 확인합니다.</p>
+            <p class="note"><b>점검관 메모</b> · CCTV와 출입통제는 구분해 판단합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="출입통제·CCTV 건물 공용 출입문이 통제되면 사무실 출입통제로 볼 수 있나요? 일부 보완요소가 될 수 있으나, 사무실 내부 개인정보 보관공간에 외부인이 접근할 수 있는지 별도로 확인해야 합니다. 건물 공용통제만으로 충분하다고 단정하지 않습니다.">
+          <summary><span class="qno">Q45</span> 건물 공용 출입문이 통제되면 사무실 출입통제로 볼 수 있나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>일부 보완요소가 될 수 있으나, 사무실 내부 개인정보 보관공간에 외부인이 접근할 수 있는지 별도로 확인해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 건물 공용통제만으로 충분하다고 단정하지 않습니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="출입통제·CCTV CCTV 안내판은 꼭 있어야 하나요? CCTV를 설치·운영하는 경우 정보주체가 촬영 사실을 알 수 있도록 안내판 설치 여부를 확인합니다. 안내판 위치와 내용 확인합니다.">
+          <summary><span class="qno">Q46</span> CCTV 안내판은 꼭 있어야 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>CCTV를 설치·운영하는 경우 정보주체가 촬영 사실을 알 수 있도록 안내판 설치 여부를 확인합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 안내판 위치와 내용 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="출입통제·CCTV CCTV 영상은 아무 직원이나 보면 안 되나요? 영상정보도 개인정보가 될 수 있으므로 열람권한은 필요한 사람으로 제한되어야 합니다. 열람 목적과 열람자를 관리하는 것이 바람직합니다. 열람권한 관리내역을 요청합니다.">
+          <summary><span class="qno">Q47</span> CCTV 영상은 아무 직원이나 보면 안 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>영상정보도 개인정보가 될 수 있으므로 열람권한은 필요한 사람으로 제한되어야 합니다. 열람 목적과 열람자를 관리하는 것이 바람직합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 열람권한 관리내역을 요청합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="출입통제·CCTV CCTV 저장장치가 사무실 책상 위에 있어도 되나요? 영상파일이 저장되는 장비는 임의 접근·복사·삭제 위험이 있으므로 안전한 장소에 보관되어야 합니다. 독립된 공간 또는 잠금장치 여부를 확인합니다.">
+          <summary><span class="qno">Q48</span> CCTV 저장장치가 사무실 책상 위에 있어도 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>영상파일이 저장되는 장비는 임의 접근·복사·삭제 위험이 있으므로 안전한 장소에 보관되어야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 독립된 공간 또는 잠금장치 여부를 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="출입통제·CCTV 출입명부를 반드시 작성해야 하나요? 체크리스트는 출입통제 장치 설치와 운영 여부를 중심으로 확인합니다. 출입명부는 통제수단 중 하나가 될 수 있으나 사업장 구조에 따라 다른 방식도 가능합니다. 실제 외부인 통제 절차가 핵심입니다.">
+          <summary><span class="qno">Q49</span> 출입명부를 반드시 작성해야 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>체크리스트는 출입통제 장치 설치와 운영 여부를 중심으로 확인합니다. 출입명부는 통제수단 중 하나가 될 수 있으나 사업장 구조에 따라 다른 방식도 가능합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 실제 외부인 통제 절차가 핵심입니다.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+
+    <section class="qa-section" id="qa-접속 PC·비접속 PC 공간분리">
+      <h3>접속 PC·비접속 PC 공간분리 <span>6개</span></h3>
+      
+        <details class="qa searchable" data-text="접속 PC·비접속 PC 공간분리 사무실이 좁아서 PC 공간분리가 어렵습니다. 완전한 별도 공간이 어렵다면 파티션, 지정좌석, 접속 PC 라벨링, 사용자 제한 등 대체 구분조치를 적용해야 합니다. ‘불가’만 기록하지 말고 대체조치를 확인합니다.">
+          <summary><span class="qno">Q50</span> 사무실이 좁아서 PC 공간분리가 어렵습니다.</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>완전한 별도 공간이 어렵다면 파티션, 지정좌석, 접속 PC 라벨링, 사용자 제한 등 대체 구분조치를 적용해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · ‘불가’만 기록하지 말고 대체조치를 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="접속 PC·비접속 PC 공간분리 노트북도 접속 PC로 봐야 하나요? LG유플러스 업무처리시스템에 접속하는 노트북이라면 접속 PC로 관리하는 것이 적절합니다. 보관, 사용권한, 분실위험도 함께 확인해야 합니다. 노트북 반출 여부를 추가로 확인합니다.">
+          <summary><span class="qno">Q51</span> 노트북도 접속 PC로 봐야 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>LG유플러스 업무처리시스템에 접속하는 노트북이라면 접속 PC로 관리하는 것이 적절합니다. 보관, 사용권한, 분실위험도 함께 확인해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 노트북 반출 여부를 추가로 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="접속 PC·비접속 PC 공간분리 같은 책상 위에 있어도 라벨만 붙이면 되나요? 라벨링은 보완조치가 될 수 있으나, 실제로 비인가자가 접속 PC를 사용하지 못하도록 사용자 제한과 화면보호기, 계정관리가 함께 필요합니다. 라벨+사용권한+위치 구분을 함께 봅니다.">
+          <summary><span class="qno">Q52</span> 같은 책상 위에 있어도 라벨만 붙이면 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>라벨링은 보완조치가 될 수 있으나, 실제로 비인가자가 접속 PC를 사용하지 못하도록 사용자 제한과 화면보호기, 계정관리가 함께 필요합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 라벨+사용권한+위치 구분을 함께 봅니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="접속 PC·비접속 PC 공간분리 비접속 PC에서 고객정보 엑셀을 열면 안 되나요? 비접속 PC에서 고객정보를 처리하면 고객정보가 통제되지 않은 환경으로 확산될 수 있습니다. 위탁업무 범위와 승인된 처리환경 내에서 처리해야 합니다. 비접속 PC 다운로드·저장 여부를 확인합니다.">
+          <summary><span class="qno">Q53</span> 비접속 PC에서 고객정보 엑셀을 열면 안 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>비접속 PC에서 고객정보를 처리하면 고객정보가 통제되지 않은 환경으로 확산될 수 있습니다. 위탁업무 범위와 승인된 처리환경 내에서 처리해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 비접속 PC 다운로드·저장 여부를 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="접속 PC·비접속 PC 공간분리 재택근무 PC도 점검대상인가요? 이 점검은 일반사무실 POS 기준이지만, 재택 PC에서 고객정보나 업무처리시스템을 사용한다면 별도 보호조치와 승인 여부 확인이 필요합니다. 재택/외부접속 여부를 현장 인터뷰로 확인합니다.">
+          <summary><span class="qno">Q54</span> 재택근무 PC도 점검대상인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>이 점검은 일반사무실 POS 기준이지만, 재택 PC에서 고객정보나 업무처리시스템을 사용한다면 별도 보호조치와 승인 여부 확인이 필요합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 재택/외부접속 여부를 현장 인터뷰로 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="접속 PC·비접속 PC 공간분리 접속 PC를 다른 업무에도 사용하면 안 되나요? 다른 업무 사용 자체보다 고객정보가 불필요하게 저장·전달·노출되지 않도록 접속 PC의 사용목적과 접근자를 통제하는 것이 중요합니다. 업무혼용에 따른 파일저장 리스크를 확인합니다.">
+          <summary><span class="qno">Q55</span> 접속 PC를 다른 업무에도 사용하면 안 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>다른 업무 사용 자체보다 고객정보가 불필요하게 저장·전달·노출되지 않도록 접속 PC의 사용목적과 접근자를 통제하는 것이 중요합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 업무혼용에 따른 파일저장 리스크를 확인합니다.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+
+    <section class="qa-section" id="qa-개인정보 수집경로">
+      <h3>개인정보 수집경로 <span>7개</span></h3>
+      
+        <details class="qa searchable" data-text="개인정보 수집경로 고객이 카카오톡으로 정보를 보내주면 어떻게 하나요? 개인 메신저는 접근통제와 삭제관리가 어렵기 때문에 공식 승인된 경로 사용이 바람직합니다. 불가피하게 수신했다면 최소정보만 받고 업무 완료 후 삭제 여부를 확인해야 합니다. 메신저 내 고객정보 잔존 여부를 직접 요구하지 말고 절차를 확인합니다.">
+          <summary><span class="qno">Q56</span> 고객이 카카오톡으로 정보를 보내주면 어떻게 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>개인 메신저는 접근통제와 삭제관리가 어렵기 때문에 공식 승인된 경로 사용이 바람직합니다. 불가피하게 수신했다면 최소정보만 받고 업무 완료 후 삭제 여부를 확인해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 메신저 내 고객정보 잔존 여부를 직접 요구하지 말고 절차를 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="개인정보 수집경로 구글폼이나 네이버폼으로 신청을 받으면 안 되나요? LG유플러스 제공 시스템과 무관한 별도 수집경로에 해당할 수 있으므로 사용 승인 여부, 수집항목, 보관위치, 접근권한, 파기절차를 확인해야 합니다. 자체폼 URL과 관리자를 확인합니다.">
+          <summary><span class="qno">Q57</span> 구글폼이나 네이버폼으로 신청을 받으면 안 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>LG유플러스 제공 시스템과 무관한 별도 수집경로에 해당할 수 있으므로 사용 승인 여부, 수집항목, 보관위치, 접근권한, 파기절차를 확인해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 자체폼 URL과 관리자를 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="개인정보 수집경로 엑셀로 고객명단을 받아 관리하는 경우는요? 엑셀 파일은 로컬 저장, 재전송, 암호화 미흡 위험이 큽니다. 업무상 필요성, 암호화, 저장위치, 접근자, 삭제시점을 확인해야 합니다. 파일명·저장위치·암호화 여부를 확인합니다.">
+          <summary><span class="qno">Q58</span> 엑셀로 고객명단을 받아 관리하는 경우는요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>엑셀 파일은 로컬 저장, 재전송, 암호화 미흡 위험이 큽니다. 업무상 필요성, 암호화, 저장위치, 접근자, 삭제시점을 확인해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 파일명·저장위치·암호화 여부를 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="개인정보 수집경로 상담메모에 고객정보를 적어도 되나요? 업무상 필요한 최소 범위의 메모는 가능할 수 있으나, 불필요한 고유식별정보·민감정보 기재는 피해야 하며 보관·파기 기준이 있어야 합니다. 메모지·노트·화이트보드 확인합니다.">
+          <summary><span class="qno">Q59</span> 상담메모에 고객정보를 적어도 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>업무상 필요한 최소 범위의 메모는 가능할 수 있으나, 불필요한 고유식별정보·민감정보 기재는 피해야 하며 보관·파기 기준이 있어야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 메모지·노트·화이트보드 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="개인정보 수집경로 동의서와 계약서상 개인정보 항목이 다르면 어떻게 되나요? 실제 수집·이용하는 개인정보 항목이 동의서 및 위탁계약서상 항목과 일치하는지 확인해야 합니다. 불일치 시 추가 수집 또는 목적 외 처리 위험이 있습니다. 항목 비교 결과를 구체적으로 기록합니다.">
+          <summary><span class="qno">Q60</span> 동의서와 계약서상 개인정보 항목이 다르면 어떻게 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>실제 수집·이용하는 개인정보 항목이 동의서 및 위탁계약서상 항목과 일치하는지 확인해야 합니다. 불일치 시 추가 수집 또는 목적 외 처리 위험이 있습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 항목 비교 결과를 구체적으로 기록합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="개인정보 수집경로 자체 마케팅에 고객정보를 써도 되나요? 위탁받은 고객정보는 위탁업무 범위 내에서 처리해야 하며, 임의로 자체 영업·마케팅 목적에 활용하면 목적 외 이용 위험이 있습니다. 마케팅 문자·TM 리스트 존재 여부를 확인합니다.">
+          <summary><span class="qno">Q61</span> 자체 마케팅에 고객정보를 써도 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>위탁받은 고객정보는 위탁업무 범위 내에서 처리해야 하며, 임의로 자체 영업·마케팅 목적에 활용하면 목적 외 이용 위험이 있습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 마케팅 문자·TM 리스트 존재 여부를 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="개인정보 수집경로 고객이 먼저 보내준 정보도 수집인가요? 고객이 자발적으로 제공했더라도 사업자가 업무 목적으로 보관·이용하면 개인정보 처리에 해당할 수 있습니다. 수집경로와 동의·보관·파기 기준을 확인해야 합니다. ‘고객이 보냈다’는 설명만으로 적정하다고 보지 않습니다.">
+          <summary><span class="qno">Q62</span> 고객이 먼저 보내준 정보도 수집인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>고객이 자발적으로 제공했더라도 사업자가 업무 목적으로 보관·이용하면 개인정보 처리에 해당할 수 있습니다. 수집경로와 동의·보관·파기 기준을 확인해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · ‘고객이 보냈다’는 설명만으로 적정하다고 보지 않습니다.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+
+    <section class="qa-section" id="qa-재위탁">
+      <h3>재위탁 <span>7개</span></h3>
+      
+        <details class="qa searchable" data-text="재위탁 배송업체나 설치업체도 재위탁인가요? 해당 업체가 고객명, 연락처, 주소 등 고객정보를 받아 업무를 수행한다면 개인정보 처리 재위탁에 해당할 가능성이 있습니다. 업무범위와 정보 접근 여부를 확인해야 합니다. 단순 물품 이동인지 고객정보 처리인지 구분합니다.">
+          <summary><span class="qno">Q63</span> 배송업체나 설치업체도 재위탁인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>해당 업체가 고객명, 연락처, 주소 등 고객정보를 받아 업무를 수행한다면 개인정보 처리 재위탁에 해당할 가능성이 있습니다. 업무범위와 정보 접근 여부를 확인해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 단순 물품 이동인지 고객정보 처리인지 구분합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="재위탁 전산 유지보수 업체의 원격지원도 재위탁인가요? 원격지원 과정에서 고객정보가 표시되는 PC나 시스템에 접근할 수 있다면 개인정보 처리 관여 가능성이 있습니다. 접근범위, 승인, 기록, 보안약정이 필요합니다. 원격접속 프로그램과 접속기록을 확인합니다.">
+          <summary><span class="qno">Q64</span> 전산 유지보수 업체의 원격지원도 재위탁인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>원격지원 과정에서 고객정보가 표시되는 PC나 시스템에 접근할 수 있다면 개인정보 처리 관여 가능성이 있습니다. 접근범위, 승인, 기록, 보안약정이 필요합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 원격접속 프로그램과 접속기록을 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="재위탁 구두로 동의받았는데 괜찮나요? 점검에서는 동의 사실을 확인할 수 있는 공문, 계약서, 재위탁 동의 승인서, 이메일 등 객관적 증빙이 필요합니다. 구두 동의는 확인불가로 기록할 수 있습니다.">
+          <summary><span class="qno">Q65</span> 구두로 동의받았는데 괜찮나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>점검에서는 동의 사실을 확인할 수 있는 공문, 계약서, 재위탁 동의 승인서, 이메일 등 객관적 증빙이 필요합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 구두 동의는 확인불가로 기록할 수 있습니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="재위탁 본사에서 일괄 계약한 업체면 별도 자료가 없어도 되나요? 본사 일괄 계약일 수 있으나, 해당 사무실에서 실제 사용하는 업체가 계약·승인 범위에 포함되는지 확인할 수 있어야 합니다. 업체명과 계약 범위 대조가 필요합니다.">
+          <summary><span class="qno">Q66</span> 본사에서 일괄 계약한 업체면 별도 자료가 없어도 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>본사 일괄 계약일 수 있으나, 해당 사무실에서 실제 사용하는 업체가 계약·승인 범위에 포함되는지 확인할 수 있어야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 업체명과 계약 범위 대조가 필요합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="재위탁 외부업체가 고객정보를 직접 보지 않으면 재위탁이 아닌가요? 고객정보에 접근하지 않고 단순 시설관리 등만 수행한다면 재위탁이 아닐 수 있습니다. 다만 접근 가능성이 있는 업무인지 확인해야 합니다. 가능성과 실제 접근 여부를 구분합니다.">
+          <summary><span class="qno">Q67</span> 외부업체가 고객정보를 직접 보지 않으면 재위탁이 아닌가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>고객정보에 접근하지 않고 단순 시설관리 등만 수행한다면 재위탁이 아닐 수 있습니다. 다만 접근 가능성이 있는 업무인지 확인해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 가능성과 실제 접근 여부를 구분합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="재위탁 파기업체도 재위탁인가요? 개인정보가 포함된 문서를 파기하기 위해 외부 파기업체에 제공한다면 개인정보 처리와 관련될 수 있습니다. 계약, 인계, 파기확인서 등 관리가 필요합니다. 파기확인서와 운송/인계 기록을 확인합니다.">
+          <summary><span class="qno">Q68</span> 파기업체도 재위탁인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>개인정보가 포함된 문서를 파기하기 위해 외부 파기업체에 제공한다면 개인정보 처리와 관련될 수 있습니다. 계약, 인계, 파기확인서 등 관리가 필요합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 파기확인서와 운송/인계 기록을 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="재위탁 대리점 간 업무를 넘겨주는 것도 재위탁인가요? 다른 법인 또는 별도 사업자에게 고객정보 처리업무를 맡기는 구조라면 재위탁 가능성이 있습니다. 내부 조직인지 별도 수탁자인지 확인해야 합니다. 사업자등록/계약관계 확인이 필요할 수 있습니다.">
+          <summary><span class="qno">Q69</span> 대리점 간 업무를 넘겨주는 것도 재위탁인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>다른 법인 또는 별도 사업자에게 고객정보 처리업무를 맡기는 구조라면 재위탁 가능성이 있습니다. 내부 조직인지 별도 수탁자인지 확인해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 사업자등록/계약관계 확인이 필요할 수 있습니다.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+
+    <section class="qa-section" id="qa-재수탁자 관리감독">
+      <h3>재수탁자 관리감독 <span>5개</span></h3>
+      
+        <details class="qa searchable" data-text="재수탁자 관리감독 재수탁자는 알아서 관리하면 되는 것 아닌가요? 재위탁이 승인되었더라도 수탁자는 재수탁자가 개인정보를 안전하게 처리하는지 관리·감독할 필요가 있습니다. 책임 전가로 보이지 않도록 안내합니다.">
+          <summary><span class="qno">Q70</span> 재수탁자는 알아서 관리하면 되는 것 아닌가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>재위탁이 승인되었더라도 수탁자는 재수탁자가 개인정보를 안전하게 처리하는지 관리·감독할 필요가 있습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 책임 전가로 보이지 않도록 안내합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="재수탁자 관리감독 재수탁자 점검은 꼭 방문해야 하나요? 방문점검만이 유일한 방식은 아닙니다. 서면점검, 체크리스트, 교육확인, 보안서약, 파기확인 등으로 관리감독 사실을 남길 수 있습니다. 위험도 높은 업체는 방문을 권고합니다.">
+          <summary><span class="qno">Q71</span> 재수탁자 점검은 꼭 방문해야 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>방문점검만이 유일한 방식은 아닙니다. 서면점검, 체크리스트, 교육확인, 보안서약, 파기확인 등으로 관리감독 사실을 남길 수 있습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 위험도 높은 업체는 방문을 권고합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="재수탁자 관리감독 파기확인서는 언제 받아야 하나요? 재수탁자가 업무 목적을 달성했거나 보관기간이 종료된 경우 파기일자, 파기항목, 파기방법, 담당자 등이 확인되는 자료를 받는 것이 바람직합니다. 파기 항목이 구체적인지 확인합니다.">
+          <summary><span class="qno">Q72</span> 파기확인서는 언제 받아야 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>재수탁자가 업무 목적을 달성했거나 보관기간이 종료된 경우 파기일자, 파기항목, 파기방법, 담당자 등이 확인되는 자료를 받는 것이 바람직합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 파기 항목이 구체적인지 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="재수탁자 관리감독 재수탁자 직원 교육까지 확인해야 하나요? 고객정보를 직접 처리하는 재수탁자 직원에게 보호기준이 전달되었는지 확인하는 것이 좋습니다. 교육자료, 서약서, 안내문 등으로 확인할 수 있습니다. 대형 업체는 자체 교육체계 확인도 가능합니다.">
+          <summary><span class="qno">Q73</span> 재수탁자 직원 교육까지 확인해야 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>고객정보를 직접 처리하는 재수탁자 직원에게 보호기준이 전달되었는지 확인하는 것이 좋습니다. 교육자료, 서약서, 안내문 등으로 확인할 수 있습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 대형 업체는 자체 교육체계 확인도 가능합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="재수탁자 관리감독 계약서에 보안조항이 없으면 어떻게 하나요? 보안약정서, 특약, 별도 개인정보 처리계약 등을 통해 개인정보 보호의무, 목적 외 이용 금지, 재제공 제한, 파기, 사고보고 등을 보완해야 합니다. 계약 보완 필요사항으로 기록합니다.">
+          <summary><span class="qno">Q74</span> 계약서에 보안조항이 없으면 어떻게 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>보안약정서, 특약, 별도 개인정보 처리계약 등을 통해 개인정보 보호의무, 목적 외 이용 금지, 재제공 제한, 파기, 사고보고 등을 보완해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 계약 보완 필요사항으로 기록합니다.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+
+    <section class="qa-section" id="qa-사고·유출 의심 상황">
+      <h3>사고·유출 의심 상황 <span>5개</span></h3>
+      
+        <details class="qa searchable" data-text="사고·유출 의심 상황 고객정보를 잘못 보냈다면 어떻게 해야 하나요? 즉시 추가 전송을 중단하고, 수신자에게 삭제를 요청하며, 위탁사 담당자에게 보고해야 합니다. 발생일시, 대상 정보, 경위, 조치내역을 기록해야 합니다. 현장에서는 보고체계 인지 여부를 확인합니다.">
+          <summary><span class="qno">Q75</span> 고객정보를 잘못 보냈다면 어떻게 해야 하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>즉시 추가 전송을 중단하고, 수신자에게 삭제를 요청하며, 위탁사 담당자에게 보고해야 합니다. 발생일시, 대상 정보, 경위, 조치내역을 기록해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 현장에서는 보고체계 인지 여부를 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="사고·유출 의심 상황 카카오톡으로 보낸 고객정보를 삭제하면 끝인가요? 삭제 요청은 초기조치일 뿐입니다. 누구에게 어떤 정보가 전송되었는지, 추가 공유 가능성은 없는지, 위탁사 보고가 필요한지 확인해야 합니다. 오발송 사고 대응 기준을 설명합니다.">
+          <summary><span class="qno">Q76</span> 카카오톡으로 보낸 고객정보를 삭제하면 끝인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>삭제 요청은 초기조치일 뿐입니다. 누구에게 어떤 정보가 전송되었는지, 추가 공유 가능성은 없는지, 위탁사 보고가 필요한지 확인해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 오발송 사고 대응 기준을 설명합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="사고·유출 의심 상황 고객 서류를 분실하면 유출인가요? 분실된 서류에 개인정보가 포함되어 있고 제3자가 접근할 가능성이 있다면 유출 또는 유출 의심 상황으로 볼 수 있습니다. 즉시 보고하고 회수·피해방지 조치를 해야 합니다. 서류 종류와 포함 항목을 확인합니다.">
+          <summary><span class="qno">Q77</span> 고객 서류를 분실하면 유출인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>분실된 서류에 개인정보가 포함되어 있고 제3자가 접근할 가능성이 있다면 유출 또는 유출 의심 상황으로 볼 수 있습니다. 즉시 보고하고 회수·피해방지 조치를 해야 합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 서류 종류와 포함 항목을 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="사고·유출 의심 상황 랜섬웨어나 악성코드 감염도 개인정보 사고인가요? 고객정보가 저장된 PC나 시스템이 감염되었다면 유출·훼손·접근통제 실패 위험이 있으므로 즉시 보고 및 조치가 필요합니다. 백신·업데이트·백업 상태 확인으로 연결합니다.">
+          <summary><span class="qno">Q78</span> 랜섬웨어나 악성코드 감염도 개인정보 사고인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>고객정보가 저장된 PC나 시스템이 감염되었다면 유출·훼손·접근통제 실패 위험이 있으므로 즉시 보고 및 조치가 필요합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 백신·업데이트·백업 상태 확인으로 연결합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="사고·유출 의심 상황 사고인지 애매하면 보고하지 않아도 되나요? 애매한 경우일수록 내부 담당자 또는 위탁사 담당자에게 신속히 문의하는 것이 안전합니다. 지연보고는 더 큰 문제가 될 수 있습니다. ‘의심 시 보고’ 원칙을 안내합니다.">
+          <summary><span class="qno">Q79</span> 사고인지 애매하면 보고하지 않아도 되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>애매한 경우일수록 내부 담당자 또는 위탁사 담당자에게 신속히 문의하는 것이 안전합니다. 지연보고는 더 큰 문제가 될 수 있습니다.</p>
+            <p class="note"><b>점검관 메모</b> · ‘의심 시 보고’ 원칙을 안내합니다.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+
+    <section class="qa-section" id="qa-판정·결과·개선조치">
+      <h3>판정·결과·개선조치 <span>6개</span></h3>
+      
+        <details class="qa searchable" data-text="판정·결과·개선조치 해당없음은 언제 쓰나요? 해당 업무, 시스템, 서류, 재위탁, CCTV 등이 실제로 존재하지 않는 경우 해당없음으로 판단할 수 있습니다. 단순히 자료가 없다는 이유만으로 해당없음 처리하지 않습니다. 존재 여부를 인터뷰와 현장확인으로 확인합니다.">
+          <summary><span class="qno">Q80</span> 해당없음은 언제 쓰나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>해당 업무, 시스템, 서류, 재위탁, CCTV 등이 실제로 존재하지 않는 경우 해당없음으로 판단할 수 있습니다. 단순히 자료가 없다는 이유만으로 해당없음 처리하지 않습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 존재 여부를 인터뷰와 현장확인으로 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="판정·결과·개선조치 증빙이 없지만 실제로 하고 있으면 양호인가요? 실제 운영이 확인되더라도 점검에서는 객관적 증빙이 중요합니다. 증빙이 없으면 보완 필요 또는 확인불가로 기록될 수 있습니다. 대체증빙 가능성을 먼저 안내합니다.">
+          <summary><span class="qno">Q81</span> 증빙이 없지만 실제로 하고 있으면 양호인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>실제 운영이 확인되더라도 점검에서는 객관적 증빙이 중요합니다. 증빙이 없으면 보완 필요 또는 확인불가로 기록될 수 있습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 대체증빙 가능성을 먼저 안내합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="판정·결과·개선조치 오늘 만든 자료도 인정되나요? 즉시조치 자료로 기록할 수 있습니다. 다만 기존에 운영되고 있었는지 여부와는 구분해야 하며, 향후 정기 운영 방안이 필요합니다. 현장 작성일자와 실제 운영기간을 구분합니다.">
+          <summary><span class="qno">Q82</span> 오늘 만든 자료도 인정되나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>즉시조치 자료로 기록할 수 있습니다. 다만 기존에 운영되고 있었는지 여부와는 구분해야 하며, 향후 정기 운영 방안이 필요합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 현장 작성일자와 실제 운영기간을 구분합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="판정·결과·개선조치 미흡사항은 모두 취약인가요? 모든 미흡이 중대 취약은 아닙니다. 개인정보 유출 가능성, 고위험 정보 포함 여부, 반복 여부, 조치 가능성에 따라 보완·미흡·취약 수준을 구분합니다. 결과 표현을 과도하게 하지 않습니다.">
+          <summary><span class="qno">Q83</span> 미흡사항은 모두 취약인가요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>모든 미흡이 중대 취약은 아닙니다. 개인정보 유출 가능성, 고위험 정보 포함 여부, 반복 여부, 조치 가능성에 따라 보완·미흡·취약 수준을 구분합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 결과 표현을 과도하게 하지 않습니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="판정·결과·개선조치 개선기한은 어떻게 정하나요? 위험도가 높은 항목은 즉시 또는 단기 개선이 필요하고, 문서체계 보완 등은 합리적인 기한을 둘 수 있습니다. 고객정보 노출 가능성이 큰 항목을 우선 조치합니다. 신분증·주민번호·퇴사자 계정·무단 재위탁은 우선순위 높음.">
+          <summary><span class="qno">Q84</span> 개선기한은 어떻게 정하나요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>위험도가 높은 항목은 즉시 또는 단기 개선이 필요하고, 문서체계 보완 등은 합리적인 기한을 둘 수 있습니다. 고객정보 노출 가능성이 큰 항목을 우선 조치합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 신분증·주민번호·퇴사자 계정·무단 재위탁은 우선순위 높음.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="판정·결과·개선조치 점검관 의견과 수검자 의견이 다르면요? 수검자 설명을 함께 기록하되, 점검관은 확인된 사실과 증빙 기준으로 판단합니다. 이견이 있는 경우 추가자료 제출 기회를 안내합니다. 감정적 논쟁을 피하고 사실 중심으로 기록합니다.">
+          <summary><span class="qno">Q85</span> 점검관 의견과 수검자 의견이 다르면요?</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>수검자 설명을 함께 기록하되, 점검관은 확인된 사실과 증빙 기준으로 판단합니다. 이견이 있는 경우 추가자료 제출 기회를 안내합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 감정적 논쟁을 피하고 사실 중심으로 기록합니다.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+
+    <section class="qa-section" id="qa-난감한 현장 대응 멘트">
+      <h3>난감한 현장 대응 멘트 <span>6개</span></h3>
+      
+        <details class="qa searchable" data-text="난감한 현장 대응 멘트 대표자가 바빠서 인터뷰가 어렵다고 합니다. 짧게 핵심사항만 확인하고, 세부 증빙은 담당자와 확인하겠습니다. 다만 책임자 지정, 지침 현행화, 재위탁 여부 등은 대표자 또는 총괄담당자의 확인이 필요합니다. 핵심 3문항만 우선 확인합니다.">
+          <summary><span class="qno">Q86</span> 대표자가 바빠서 인터뷰가 어렵다고 합니다.</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>짧게 핵심사항만 확인하고, 세부 증빙은 담당자와 확인하겠습니다. 다만 책임자 지정, 지침 현행화, 재위탁 여부 등은 대표자 또는 총괄담당자의 확인이 필요합니다.</p>
+            <p class="note"><b>점검관 메모</b> · 핵심 3문항만 우선 확인합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="난감한 현장 대응 멘트 자료 담당자가 부재 중이라고 합니다. 현장에서 확인 가능한 자료를 먼저 확인하고, 부재 자료는 사후 제출 목록으로 정리하겠습니다. 제출 가능일과 담당자를 지정해 주시면 됩니다. 자료명·제출기한·담당자를 기록합니다.">
+          <summary><span class="qno">Q87</span> 자료 담당자가 부재 중이라고 합니다.</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>현장에서 확인 가능한 자료를 먼저 확인하고, 부재 자료는 사후 제출 목록으로 정리하겠습니다. 제출 가능일과 담당자를 지정해 주시면 됩니다.</p>
+            <p class="note"><b>점검관 메모</b> · 자료명·제출기한·담당자를 기록합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="난감한 현장 대응 멘트 수검자가 ‘다른 점검에서는 안 봤다’고 합니다. 이번 점검은 제공된 체크리스트 기준에 따라 확인하고 있습니다. 과거 점검 방식과 다를 수 있으나, 오늘은 본 항목 기준으로 동일하게 확인하겠습니다. 감정적 반박 없이 기준 일관성을 강조합니다.">
+          <summary><span class="qno">Q88</span> 수검자가 ‘다른 점검에서는 안 봤다’고 합니다.</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>이번 점검은 제공된 체크리스트 기준에 따라 확인하고 있습니다. 과거 점검 방식과 다를 수 있으나, 오늘은 본 항목 기준으로 동일하게 확인하겠습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 감정적 반박 없이 기준 일관성을 강조합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="난감한 현장 대응 멘트 수검자가 개인정보가 들어있어 보여줄 수 없다고 합니다. 개인정보 내용 자체가 아니라 보관위치, 암호화, 접근권한, 삭제 여부를 확인하려는 것입니다. 개인정보 항목은 가리거나 마스킹한 상태로 확인해도 됩니다. 마스킹·부분확인·화면설명 등 대체방법을 제시합니다.">
+          <summary><span class="qno">Q89</span> 수검자가 개인정보가 들어있어 보여줄 수 없다고 합니다.</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>개인정보 내용 자체가 아니라 보관위치, 암호화, 접근권한, 삭제 여부를 확인하려는 것입니다. 개인정보 항목은 가리거나 마스킹한 상태로 확인해도 됩니다.</p>
+            <p class="note"><b>점검관 메모</b> · 마스킹·부분확인·화면설명 등 대체방법을 제시합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="난감한 현장 대응 멘트 점검관이 모르는 예외 상황이 나왔습니다. 현장에서 단정하기보다 사실관계와 증빙을 기록하고, 고객사 기준 확인 후 최종 판단하겠습니다. 현장 즉답이 어려운 사안은 보류 처리합니다.">
+          <summary><span class="qno">Q90</span> 점검관이 모르는 예외 상황이 나왔습니다.</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>현장에서 단정하기보다 사실관계와 증빙을 기록하고, 고객사 기준 확인 후 최종 판단하겠습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 현장 즉답이 어려운 사안은 보류 처리합니다.</p>
+          </div>
+        </details>
+        
+        <details class="qa searchable" data-text="난감한 현장 대응 멘트 수검자가 미흡이라는 표현에 강하게 반발합니다. 미흡은 비난이 아니라 개선이 필요한 상태를 의미합니다. 확인된 사실과 개선방향을 함께 기록하여 향후 보완할 수 있도록 하겠습니다. 용어를 부드럽게 설명합니다.">
+          <summary><span class="qno">Q91</span> 수검자가 미흡이라는 표현에 강하게 반발합니다.</summary>
+          <div class="answer">
+            <p><b>권장 답변</b><br>미흡은 비난이 아니라 개선이 필요한 상태를 의미합니다. 확인된 사실과 개선방향을 함께 기록하여 향후 보완할 수 있도록 하겠습니다.</p>
+            <p class="note"><b>점검관 메모</b> · 용어를 부드럽게 설명합니다.</p>
+          </div>
+        </details>
+        
+    </section>
+    
+      </section>
+
+      <section id="ending" class="block">
+        <h2>6. 점검 종료 전 최종 확인</h2>
+        <ul class="mini-list">
+          <li>내부관리계획 또는 고객정보보호 이행지침을 확인했는가?</li>
+          <li>연 1회 이상 교육증적을 확인했는가?</li>
+          <li>자체 이행실태 점검 또는 보안점검 자료를 확인했는가?</li>
+          <li>개인정보취급자 명단과 실근무자·계정자·교육대상자가 일치하는가?</li>
+          <li>정보보호서약서 작성 대상 누락이 없는가?</li>
+          <li>개인정보 포함 서류 보관장소와 잠금장치 상태를 직접 확인했는가?</li>
+          <li>출입통제 장치와 CCTV 운영 여부를 확인했는가?</li>
+          <li>LG유플러스 업무처리시스템 접속 PC와 비접속 PC 분리상태를 확인했는가?</li>
+          <li>별도 개인정보 수집경로가 없는지 확인했는가?</li>
+          <li>재위탁 여부와 LG유플러스 동의자료를 확인했는가?</li>
+          <li>재수탁자 관리감독 및 파기확인 증빙을 확인했는가?</li>
+          <li>미흡사항은 사실·위험·개선방향으로 구체화했는가?</li>
+        </ul>
+        <h3>점검 종료 멘트 예시</h3>
+        <div class="notice good">
+          “오늘 점검에서 확인된 사항은 세일즈파트너 사무실의 고객정보 보호 수준을 높이기 위한 개선 목적으로 정리될 예정입니다. 현장에서 즉시 조치 가능한 사항은 우선 개선해주시고, 추가 제출이 필요한 자료는 정해진 기한 내 제출 부탁드립니다.”
+        </div>
+      </section>
+
+      <section class="block">
+        <h2>7. 참고 출처</h2>
+        <ul>
+          <li>국가법령정보센터: 대한민국 개인정보 보호법(제15조, 제17조, 제18조, 제21조, 제25조, 제26조, 제28조, 제29조) 및 개인정보 보호법 시행령(제25조, 제28조, 제30조)</li>
+          <li>국가법령정보센터: 개인정보의 안전성 확보조치 기준</li>
+          <li>개인정보보호위원회: 개인정보 처리 통합 안내서(2025.7.)</li>
+          <li>원본자료: ★260608-사무실_심층점검_체크리스트_및_표준증적.xlsx</li>
+        </ul>
+      </section>
+    </div>
+
+    <footer>
+      배포용 초안 · 2026-06-19 작성 · 대한민국 개인정보 보호법 기준 · 본 자료는 점검관 교육 및 현장점검 보조 목적으로 작성되었습니다.
+    </footer>
+  </main>
+</div>
+
+
+<button id="overviewButton" class="floating-overview" type="button" onclick="openOverviewModal()" aria-label="개요 팝업 열기" title="개요 팝업 열기">개요</button>
+
+<div id="overviewModal" class="overview-modal" role="dialog" aria-modal="true" aria-labelledby="overviewModalTitle">
+  <div class="overview-dialog" tabindex="-1">
+    <div class="overview-modal-head">
+      <div>
+        <h2 id="overviewModalTitle">1. 개요 빠른 참고</h2>
+        <p>현재 보던 위치를 유지한 채 프로젝트 배경과 점검 관점을 확인할 수 있습니다.</p>
+      </div>
+      <button class="overview-close" type="button" onclick="closeOverviewModal()" aria-label="개요 팝업 닫기">×</button>
+    </div>
+    <div id="overviewModalBody" class="overview-modal-body"></div>
+    <div class="overview-modal-actions">
+      <button type="button" onclick="closeOverviewModal()">현재 위치로 돌아가기</button>
+    </div>
+  </div>
+</div>
+
+<button id="homeButton" class="floating-home" type="button" onclick="scrollToTop()" aria-label="맨 위로 이동" title="맨 위로 이동">⌂</button>
+
+<script>
+const searchInput = document.getElementById('searchInput');
+const allSearchables = () => Array.from(document.querySelectorAll('.searchable'));
+function normalize(s) { return (s || '').toLowerCase().replace(/\s+/g,' '); }
+
+function runSearch() {
+  const q = normalize(searchInput.value);
+  let guideVisible = 0, qaVisible = 0;
+  allSearchables().forEach(el => {
+    const text = normalize(el.dataset.text + ' ' + el.innerText);
+    const match = !q || text.includes(q);
+    el.style.display = match ? '' : 'none';
+    if (match && el.classList.contains('guide-card')) guideVisible++;
+    if (match && el.classList.contains('qa')) qaVisible++;
+    if (q && match && el.tagName.toLowerCase()==='details') el.open = true;
+  });
+  document.getElementById('emptyGuide').style.display = guideVisible ? 'none' : '';
+  document.getElementById('emptyQa').style.display = qaVisible ? 'none' : '';
+}
+
+searchInput.addEventListener('input', runSearch);
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.guide-card').forEach(card => {
+      card.style.display = (f === '전체' || card.dataset.area === f) ? '' : 'none';
+    });
+    searchInput.value='';
+    document.getElementById('emptyGuide').style.display = 'none';
+  });
+});
+
+function expandAll() {
+  document.querySelectorAll('details').forEach(d => d.open = true);
+}
+function collapseAll() {
+  document.querySelectorAll('details').forEach(d => d.open = false);
+}
+
+const quickNavLinks = Array.from(document.querySelectorAll('.mobile-item-nav a'));
+const quickNav = document.querySelector('.mobile-item-nav');
+
+if (quickNav) {
+  let isDown = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+  let moved = false;
+
+  quickNav.addEventListener('mousedown', (e) => {
+    if (window.innerWidth > 960) return;
+    isDown = true;
+    moved = false;
+    startX = e.pageX;
+    startScrollLeft = quickNav.scrollLeft;
+    quickNav.classList.add('is-dragging');
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    const dx = e.pageX - startX;
+    if (Math.abs(dx) > 4) moved = true;
+    quickNav.scrollLeft = startScrollLeft - dx;
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (!isDown) return;
+    isDown = false;
+    quickNav.classList.remove('is-dragging');
+  });
+
+  quickNav.addEventListener('click', (e) => {
+    if (moved) {
+      e.preventDefault();
+      e.stopPropagation();
+      moved = false;
+    }
+  }, true);
+}
+
+function setActiveQuickNav(id) {
+  quickNavLinks.forEach(link => {
+    const active = link.getAttribute('href') === '#' + id;
+    link.classList.toggle('active', active);
+    if (active) link.scrollIntoView({ behavior:'smooth', inline:'center', block:'nearest' });
+  });
+}
+
+if ('IntersectionObserver' in window && quickNavLinks.length) {
+  const observedTargets = quickNavLinks
+    .map(link => document.querySelector(link.getAttribute('href')))
+    .filter(Boolean);
+  const observer = new IntersectionObserver(entries => {
+    const visible = entries
+      .filter(entry => entry.isIntersecting)
+      .sort((a,b) => b.intersectionRatio - a.intersectionRatio)[0];
+    if (visible) setActiveQuickNav(visible.target.id);
+  }, { rootMargin:'-36% 0px -54% 0px', threshold:[0, .2, .5, .8] });
+  observedTargets.forEach(target => observer.observe(target));
+}
+
+quickNavLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    const id = link.getAttribute('href').replace('#','');
+    setActiveQuickNav(id);
+  });
+});
+
+function scrollToTop() {
+  window.scrollTo({ top:0, behavior:'smooth' });
+}
+
+const homeButton = document.getElementById('homeButton');
+
+const overviewButton = document.getElementById('overviewButton');
+const overviewModal = document.getElementById('overviewModal');
+const overviewModalBody = document.getElementById('overviewModalBody');
+const overviewDialog = overviewModal ? overviewModal.querySelector('.overview-dialog') : null;
+let overviewReturnScrollY = 0;
+
+function syncOverviewButtonVisibility() {
+  const shouldShow = window.scrollY > 520;
+  if (overviewButton) overviewButton.classList.toggle('visible', shouldShow);
+}
+
+function prepareOverviewModalContent() {
+  const overview = document.getElementById('overview');
+  if (!overview || !overviewModalBody) return;
+  overviewModalBody.innerHTML = overview.innerHTML;
+  overviewModalBody.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+  overviewModalBody.querySelectorAll('details').forEach(d => d.open = true);
+}
+
+function openOverviewModal() {
+  if (!overviewModal) return;
+  overviewReturnScrollY = window.scrollY;
+  prepareOverviewModalContent();
+  overviewModal.classList.add('visible');
+  document.body.classList.add('modal-open');
+  setTimeout(() => overviewDialog && overviewDialog.focus(), 30);
+}
+
+function closeOverviewModal() {
+  if (!overviewModal) return;
+  overviewModal.classList.remove('visible');
+  document.body.classList.remove('modal-open');
+  window.scrollTo({ top: overviewReturnScrollY, behavior:'instant' in window ? 'instant' : 'auto' });
+}
+
+if (overviewModal) {
+  overviewModal.addEventListener('click', (e) => {
+    if (e.target === overviewModal) closeOverviewModal();
+  });
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overviewModal.classList.contains('visible')) closeOverviewModal();
+  });
+}
+
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      homeButton.classList.toggle('visible', window.scrollY > 520);
+      syncOverviewButtonVisibility();
+      ticking = false;
+    });
+    ticking = true;
+  }
+}, { passive:true });
+
+
+const principleModal = document.getElementById('principleModal');
+const principleDialog = principleModal ? principleModal.querySelector('.principle-dialog') : null;
+const principleBoxes = principleModal ? Array.from(principleModal.querySelectorAll('.principle-box')) : [];
+const principleConfirm = document.getElementById('principleConfirm');
+const principleCount = document.getElementById('principleCount');
+
+function updatePrincipleState() {
+  const checkedCount = principleBoxes.filter(box => box.checked).length;
+  principleBoxes.forEach(box => box.closest('.principle-check').classList.toggle('checked', box.checked));
+  if (principleCount) principleCount.textContent = checkedCount + '/4 확인 완료';
+  if (principleConfirm) principleConfirm.disabled = checkedCount !== principleBoxes.length;
+}
+
+function openPrincipleModal() {
+  if (!principleModal) return;
+  principleModal.classList.add('visible');
+  document.body.classList.add('modal-open');
+  updatePrincipleState();
+  setTimeout(() => principleDialog && principleDialog.focus(), 40);
+}
+
+function closePrincipleModalAndShowOverview() {
+  if (!principleModal || principleConfirm.disabled) return;
+  principleModal.classList.remove('visible');
+  document.body.classList.remove('modal-open');
+  const overviewSection = document.getElementById('overview');
+  if (overviewSection) {
+    overviewSection.scrollIntoView({ behavior:'smooth', block:'start' });
+    setActiveQuickNav('overview');
+  }
+}
+
+principleBoxes.forEach(box => box.addEventListener('change', updatePrincipleState));
+if (principleConfirm) principleConfirm.addEventListener('click', closePrincipleModalAndShowOverview);
+window.addEventListener('DOMContentLoaded', openPrincipleModal);
+
+</script>
+</body>
+</html>
