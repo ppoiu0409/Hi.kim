@@ -43,12 +43,11 @@ Build output directory: .
 2. `My Profile`을 엽니다.
 3. `API Tokens`를 선택합니다.
 4. `Create Token`을 누릅니다.
-5. `Edit Cloudflare Workers` 템플릿을 선택하거나, 직접 토큰을 만듭니다.
-6. 권한에는 최소한 Pages 배포가 가능하도록 아래 권한을 포함합니다.
+5. `Custom Token`에서 `Get started`를 선택합니다.
+6. 권한에는 Pages 배포가 가능하도록 아래 권한을 포함합니다.
 
 ```text
 Account - Cloudflare Pages - Edit
-Account - Workers Scripts - Edit
 ```
 
 만든 토큰은 GitHub Secret `CLOUDFLARE_API_TOKEN`으로 넣습니다.
