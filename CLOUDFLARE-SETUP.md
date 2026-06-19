@@ -12,7 +12,7 @@ Codespaces에서 개발
 
 ## 1. Cloudflare Pages 프로젝트 만들기
 
-GitHub Actions가 `edu-nice` 프로젝트를 자동 생성하도록 설정되어 있습니다.
+GitHub Actions가 `ncip-edu` 프로젝트를 자동 생성하도록 설정되어 있습니다.
 
 Cloudflare에서 직접 만들 경우:
 
@@ -20,14 +20,14 @@ Cloudflare에서 직접 만들 경우:
 2. 왼쪽 메뉴에서 `Workers & Pages`를 엽니다.
 3. `Pages` 탭을 선택합니다.
 4. `Create a project`를 누릅니다.
-5. 프로젝트 이름을 `edu-nice`로 만듭니다.
+5. 프로젝트 이름을 `ncip-edu`로 만듭니다.
 
 이 저장소는 정적 HTML 사이트라 빌드 명령이 필요 없습니다.
 
 설정값은 아래처럼 사용하면 됩니다.
 
 ```text
-Project name: edu-nice
+Project name: ncip-edu
 Production branch: main
 Build command: 비워둠
 Build output directory: .

@@ -26,7 +26,7 @@ chmod +x openai_test.sh
 
 Cloudflare Pages 자동 배포
 1. `.github/workflows/cloudflare-pages.yml`이 `main` 브랜치 push를 감지합니다.
-2. GitHub Actions가 Cloudflare Pages 프로젝트 `hi-kim`으로 정적 사이트를 배포합니다.
+2. GitHub Actions가 Cloudflare Pages 프로젝트 `ncip-edu`로 정적 사이트를 배포합니다.
 3. 최초 1회 Cloudflare API Token과 Account ID를 GitHub Secrets에 등록해야 합니다.
 
 자세한 순서는 `CLOUDFLARE-SETUP.md`를 확인하세요.
