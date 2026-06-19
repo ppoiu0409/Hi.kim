@@ -362,8 +362,7 @@
 
     @media (max-width: 960px) {
       .wrap { display:block; }
-      aside { position:relative; width:100%; height:auto; }
-      .side-nav { display:grid; grid-template-columns:repeat(2,1fr); gap:4px; }
+      aside { display:none; }
       .content, .toolbar, header.hero { padding-left:20px; padding-right:20px; }
       .toolbar { padding-top:10px; padding-bottom:10px; gap:8px; }
       .search { order:1; flex:1 1 100%; }
@@ -1306,8 +1305,11 @@
 
     <div class="toolbar" id="top">
       <div class="search">🔎 <input id="searchInput" type="search" placeholder="검색어 입력: 예) 재위탁, 서약서, CCTV, 구글폼, 퇴사자, 사진촬영"></div>
-      <div class="mobile-nav-hint" aria-hidden="true"><span>점검항목 바로가기</span><span>좌우로 밀어보세요 ↔</span></div>
-      <nav class="mobile-item-nav" aria-label="점검항목 빠른 이동">
+      <div class="mobile-nav-hint" aria-hidden="true"><span>빠른 이동</span><span>좌우로 밀어보세요 ↔</span></div>
+      <nav class="mobile-item-nav" aria-label="모바일 빠른 이동">
+        <a href="#overview"><b>개요</b><span>개요</span></a>
+        <a href="#law"><b>법령</b><span>법령</span></a>
+        <a href="#flow"><b>흐름</b><span>흐름</span></a>
         <a href="#item-1"><b>01</b><span>내부관리</span></a>
         <a href="#item-2"><b>02</b><span>교육관리</span></a>
         <a href="#item-3"><b>03</b><span>이행관리</span></a>
@@ -1320,6 +1322,7 @@
         <a href="#item-10"><b>10</b><span>재위탁</span></a>
         <a href="#item-11"><b>11</b><span>관리감독</span></a>
         <a href="#qa"><b>Q</b><span>질문대응</span></a>
+        <a href="#ending"><b>종료</b><span>종료</span></a>
       </nav>
       <div class="toolbar-actions">
         <button class="secondary" onclick="expandAll()">모두 펼치기</button>
