@@ -777,6 +777,7 @@
     .issue-matrix table {
       min-width:780px;
       background:white;
+      table-layout:fixed;
     }
     .issue-matrix th {
       background:#203a63;
@@ -785,12 +786,17 @@
       text-align:center;
     }
     .issue-matrix td:first-child {
-      width:150px;
       text-align:center;
       font-weight:900;
       color:var(--navy);
       background:#f8fbff;
     }
+    .issue-matrix th:first-child,
+    .issue-matrix td:first-child { width:18%; }
+    .issue-matrix th:nth-child(2),
+    .issue-matrix td:nth-child(2) { width:48%; }
+    .issue-matrix th:nth-child(3),
+    .issue-matrix td:nth-child(3) { width:34%; }
     .hq-flow-box {
       margin:18px 0;
       background:#ffffff;
