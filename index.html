@@ -120,6 +120,7 @@
     .filter-row { display:flex; gap:10px; flex-wrap:wrap; margin:14px 0 2px; }
     .filter-btn { background:white; color:var(--blue); border:1px solid var(--line); padding:9px 12px; }
     .filter-btn.active { background:var(--blue); color:white; }
+    .mobile-field-note { display:none; }
     .qa-section { margin:22px 0; }
     .qa-section h3 { color:var(--navy); font-size:21px; margin:0 0 10px; }
     .qa-section h3 span { font-size:12px; color:var(--muted); font-weight:700; }
@@ -396,9 +397,154 @@
       .toolbar-actions { order:4; width:100%; display:grid; grid-template-columns:repeat(3,1fr); gap:8px; }
       .toolbar-actions button { width:100%; padding:10px 8px; font-size:13px; }
       section.block, .guide-card { scroll-margin-top: 178px; }
+      header.hero { padding-top:24px; padding-bottom:24px; }
+      .hero h2 { font-size:26px; line-height:1.26; margin-bottom:8px; }
+      .hero .lead { font-size:14px; line-height:1.5; }
+      aside { padding:18px 16px; }
+      aside h1 { font-size:17px; }
+      aside p { margin-bottom:12px; }
+      .content { padding-top:18px; padding-bottom:56px; }
+      section.block {
+        margin-top:18px;
+        padding:16px;
+        border-radius:18px;
+        box-shadow:0 6px 18px rgba(11,36,71,.07);
+      }
+      section.block > h2 {
+        font-size:20px;
+        line-height:1.32;
+        margin-bottom:10px;
+      }
       .stats { grid-template-columns:repeat(2,1fr); }
       .grid-2, .flow { grid-template-columns:1fr; }
       .mini-list { columns:1; }
+      #law table {
+        display:block;
+        overflow-x:auto;
+        white-space:normal;
+        border-radius:12px;
+      }
+      #law .notice,
+      #flow .notice,
+      #checklist > .notice {
+        display:none;
+      }
+      #flow .flow div {
+        padding:12px;
+        font-size:14px;
+      }
+      .mobile-field-note {
+        display:block;
+        margin:0 0 12px;
+        padding:12px 13px;
+        border:1px solid #bfeadc;
+        border-left:5px solid var(--mint);
+        border-radius:14px;
+        background:#eefbf7;
+        color:#183c37;
+        font-size:13.5px;
+        font-weight:800;
+        line-height:1.45;
+      }
+      .filter-row {
+        gap:8px;
+        flex-wrap:nowrap;
+        overflow-x:auto;
+        padding-bottom:6px;
+        margin-top:10px;
+        -webkit-overflow-scrolling:touch;
+        scrollbar-width:none;
+      }
+      .filter-row::-webkit-scrollbar { display:none; }
+      .filter-btn {
+        flex:0 0 auto;
+        border-radius:999px;
+        padding:8px 11px;
+        font-size:12.5px;
+        white-space:nowrap;
+      }
+      .guide-card {
+        margin:14px 0;
+        padding:16px;
+        border-radius:18px;
+        box-shadow:0 6px 18px rgba(29,36,51,.06);
+      }
+      .card-head {
+        align-items:center;
+        gap:10px;
+        margin-bottom:10px;
+      }
+      .num {
+        width:36px;
+        height:28px;
+        border-radius:9px;
+        font-size:13px;
+      }
+      .area { font-size:12px; }
+      .card-head h3 {
+        font-size:20px;
+        margin-top:6px;
+      }
+      .evidence {
+        padding:6px 8px;
+        border-radius:10px;
+        font-size:12px;
+      }
+      .check-question {
+        margin:10px 0 12px;
+        padding:12px 13px;
+        border-radius:12px;
+        font-size:15px;
+        line-height:1.5;
+      }
+      .guide-card > details {
+        display:none;
+      }
+      .guide-card .grid-2 {
+        gap:10px;
+        margin-top:10px;
+      }
+      .guide-card .box {
+        padding:13px;
+        border-radius:14px;
+      }
+      .guide-card .box h4 {
+        font-size:14px;
+        margin-bottom:6px;
+      }
+      .guide-card .box li {
+        margin-bottom:4px;
+        font-size:13.5px;
+        line-height:1.48;
+      }
+      .guide-card .box li:nth-child(n+4),
+      .guide-card .box:nth-child(2),
+      .guide-card .box:nth-child(4) {
+        display:none;
+      }
+      .judgement {
+        margin-top:10px;
+        padding:12px 13px;
+        border-radius:13px;
+        font-size:13.5px;
+        line-height:1.45;
+      }
+      .qa-section {
+        margin:16px 0;
+      }
+      .qa-section h3 {
+        font-size:18px;
+        line-height:1.35;
+      }
+      .qa summary {
+        align-items:flex-start;
+        line-height:1.45;
+        font-size:14px;
+      }
+      .answer {
+        font-size:13.5px;
+        line-height:1.55;
+      }
       .floating-home { right:16px; bottom:16px; width:52px; height:52px; font-size:21px; }
     }
 
@@ -1501,6 +1647,7 @@
           <b>인터뷰 문장 사용 팁</b><br>
           수검자 인터뷰는 추궁형 질문보다 “현재 어떻게 관리하고 계신가요?”, “진행하셨나요?”, “확인할 수 있을까요?”처럼 부드러운 확인형 문장으로 진행하면 현장 협조를 얻기 쉽습니다. 아래 스크립트는 점검관이 그대로 읽어도 자연스럽게 들리도록 조정했습니다.
         </div>
+        <div class="mobile-field-note">모바일에서는 현장 확인에 필요한 질문, 핵심 확인, 증빙, 판단 기준을 먼저 보여줍니다.</div>
         <div class="filter-row">
           <button class="filter-btn active" data-filter="전체">전체</button>
           <button class="filter-btn" data-filter="개인정보정책">개인정보정책 <b>3</b></button><button class="filter-btn" data-filter="조직관리">조직관리 <b>2</b></button><button class="filter-btn" data-filter="물리보안">물리보안 <b>3</b></button><button class="filter-btn" data-filter="개인정보수집">개인정보수집 <b>1</b></button><button class="filter-btn" data-filter="개인정보이용 및 제공">개인정보이용 및 제공 <b>2</b></button>
