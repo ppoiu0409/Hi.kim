@@ -23,3 +23,19 @@ chmod +x openai_test.sh
 ```
 
 성공하면 OpenAI로부터 간단한 응답(JSON)이 출력됩니다.
+
+Cloudflare Pages 자동 배포
+1. `.github/workflows/cloudflare-pages.yml`이 `main` 브랜치 push를 감지합니다.
+2. GitHub Actions가 Cloudflare Pages 프로젝트 `hi-kim`으로 정적 사이트를 배포합니다.
+3. 최초 1회 Cloudflare API Token과 Account ID를 GitHub Secrets에 등록해야 합니다.
+
+자세한 순서는 `CLOUDFLARE-SETUP.md`를 확인하세요.
+
+변경사항 GitHub 업로드
+1. 수정이 끝나면 아래 명령을 실행합니다.
+
+```bash
+./scripts/publish.sh "수정 내용 설명"
+```
+
+2. GitHub `main`에 올라가면 Cloudflare Pages 자동 배포가 이어서 실행됩니다.
